@@ -1,0 +1,13 @@
+{
+  "name": "rede-raizes-do-nordeste",
+  "version": "1.0.0",
+  "description": "Front-end multicanal (App/Site, Totem, Balcão, Cozinha e Gerência) da Rede Raízes do Nordeste – Projeto Multidisciplinar UNINTER 2026, trilha Front-End.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
