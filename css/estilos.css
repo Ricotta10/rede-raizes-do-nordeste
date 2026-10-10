@@ -214,7 +214,8 @@ body[data-layout="totem"] .acoes-fixas { bottom: 0; }
 }
 
 .topo--totem { grid-template-columns: auto 1fr auto; padding: 12px var(--gutter); }
-.topo__unidade { display: inline-flex; gap: 6px; align-items: center; color: var(--texto-suave); font-weight: 500; }
+.topo__unidade { display: inline-flex; gap: 6px; align-items: center; color: var(--texto-suave); font-weight: 500; justify-self: start; }
+.topo--totem > .btn { justify-self: end; grid-column: 3; }
 .topo--equipe { grid-template-columns: auto 1fr auto; }
 .topo--equipe .nav-topo--equipe { display: flex; gap: 4px; justify-self: center; }
 .nav-topo--equipe a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 10px; border-radius: var(--raio-p); color: var(--texto); text-decoration: none; font-weight: 500; }
