@@ -384,7 +384,8 @@ await cenario('CT18', 'Acesso a dados pessoais pela gerência', 'Aviso prévio, 
     await page.click('dialog button[value=ok]');
     await page.waitForSelector('dialog.dialogo[open]');
     mascarado = await page.$eval('dialog .dados', (e) => e.innerText);
-    await foto(page, 'd-04-dados-mascarados');
+    await espera(250);
+    await (await page.$('dialog.dialogo[open]')).screenshot({ path: path.join(TELAS, 'd-04-dados-mascarados.jpg'), type: 'jpeg', quality: 85 });
     await page.click('dialog button[value=ok]');
   }
   await page.click('[data-aba=auditoria]');
