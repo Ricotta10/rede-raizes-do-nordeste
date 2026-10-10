@@ -1,3 +1,8 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Documento de entrega: dados pessoais do aluno e PDF gerado ficam fora do repositório
+docs/relatorio/dados-aluno.json
+docs/relatorio/.relatorio-montado.html
+entrega/

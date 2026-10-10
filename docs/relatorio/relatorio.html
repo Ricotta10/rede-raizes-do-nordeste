@@ -1,0 +1,1006 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Projeto Multidisciplinar – Trilha Front-End – Rede Raízes do Nordeste</title>
+<style>
+  @page { size: A4; margin: 3cm 2cm 2cm 3cm; }
+  html { font-family: Arial, Helvetica, sans-serif; font-size: 12pt; color: #000; }
+  body { margin: 0; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  p { text-align: justify; text-indent: 1.25cm; margin: 0 0 6pt; orphans: 3; widows: 3; }
+  p.sem-recuo, .quadro p, figure p, li p { text-indent: 0; }
+  ul, ol { margin: 0 0 8pt; padding-left: 1.6cm; }
+  li { text-align: justify; margin-bottom: 2pt; }
+  h1 { font-size: 12pt; font-weight: bold; text-transform: uppercase; margin: 0 0 18pt; break-before: page; break-after: avoid; }
+  h1.sem-numero { text-align: center; }
+  h2 { font-size: 12pt; font-weight: bold; margin: 18pt 0 8pt; break-after: avoid; }
+  h3 { font-size: 12pt; font-weight: normal; font-style: italic; margin: 12pt 0 6pt; break-after: avoid; }
+  .marca { color: #fff; font-size: 1px; line-height: 0; }
+  code, pre { font-family: "Courier New", monospace; font-size: 9.5pt; }
+  pre { white-space: pre-wrap; word-break: break-word; line-height: 1.2; border: 1px solid #999; padding: 6pt; margin: 6pt 0 10pt; background: #f6f6f6; }
+  a { color: #000; }
+  .legenda { font-size: 10pt; text-align: center; margin: 12pt 0 4pt; text-indent: 0; font-weight: bold; break-after: avoid; }
+  .fonte { font-size: 10pt; text-align: center; margin: 4pt 0 12pt; text-indent: 0; }
+  figure { margin: 0; break-inside: avoid; text-align: center; }
+  figure svg { max-width: 100%; height: auto; }
+  .figura-alta svg { max-height: 21.5cm; width: auto; }
+
+  table.quadro { width: 100%; border-collapse: collapse; font-size: 10pt; line-height: 1.25; margin: 0 0 4pt; }
+  .quadro th, .quadro td { border: 1px solid #000; padding: 3pt 5pt; vertical-align: top; text-align: left; }
+  .quadro thead th { background: #e6e6e6; }
+  .quadro thead { display: table-header-group; }
+  .quadro tr { break-inside: avoid; }
+  .quadro td.c, .quadro th.c { text-align: center; }
+  .quadro.uc th { width: 4.2cm; background: #f0f0f0; }
+  .ok { font-weight: bold; }
+
+  /* Capa e folha de rosto */
+  .capa, .rosto { height: 24.6cm; display: flex; flex-direction: column; text-align: center; text-transform: uppercase; font-weight: bold; }
+  .capa .topo { flex: 1; }
+  .capa .meio { flex: 1.4; display: flex; flex-direction: column; justify-content: center; }
+  .capa .rodape, .rosto .rodape { flex: 0; }
+  .capa p, .rosto p { text-indent: 0; text-align: center; margin: 0; }
+  .titulo-trabalho { font-size: 14pt; line-height: 1.4; }
+  .subtitulo { font-weight: normal; text-transform: none; font-size: 12pt; margin-top: 8pt !important; }
+  .rosto { text-transform: none; font-weight: normal; }
+  .rosto .autor { text-transform: uppercase; font-weight: bold; }
+  .rosto .meio { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.2cm; }
+  .natureza { margin-left: 8cm; text-align: justify !important; font-size: 10pt; line-height: 1.2; }
+  .identificacao { margin-left: 8cm; text-align: left !important; font-size: 10pt; line-height: 1.5; }
+  .preencher { background: #fff3b0; }
+
+  /* Sumário */
+  .sumario { list-style: none; padding: 0; margin: 0; }
+  .sumario li { display: flex; align-items: baseline; text-align: left; margin: 0 0 3pt; }
+  .sumario li .t { flex: 0 1 auto; padding-right: 4pt; }
+  .sumario li .p { flex: 1 0 auto; border-bottom: 1px dotted #000; margin: 0 4pt 4pt 0; }
+  .sumario li .n { flex: 0 0 auto; }
+  .sumario .n1 { font-weight: bold; text-transform: uppercase; margin-top: 6pt; }
+  .sumario .n2 { padding-left: 0.8cm; }
+
+  /* Capturas de tela */
+  .telas { display: flex; justify-content: center; align-items: flex-start; gap: 0.5cm; flex-wrap: nowrap; }
+  .telas figure { flex: 0 0 auto; }
+  .telas figcaption { font-size: 9pt; margin-top: 3pt; text-align: center; }
+  img.cel { height: 10.2cm; border: 1px solid #888; border-radius: 6px; }
+  img.cel-p { height: 8.6cm; border: 1px solid #888; border-radius: 6px; }
+  img.desk { width: 15.8cm; border: 1px solid #888; }
+  img.desk-alta { width: 13cm; border: 1px solid #888; }
+  img.totem { height: 9.5cm; border: 1px solid #888; }
+
+  /* Wireframes de baixa fidelidade */
+  .wf-grade { display: flex; justify-content: center; gap: 0.45cm; flex-wrap: wrap; }
+  .wf-item { text-align: center; }
+  .wf-item > span { display: block; font-size: 9pt; margin-top: 3pt; }
+  .wf { border: 2px solid #222; background: #fff; display: flex; flex-direction: column; gap: 4px; font-size: 6.6pt; line-height: 1.15; text-align: left; overflow: hidden; color: #222; }
+  .wf.cel { width: 4.75cm; height: 9.3cm; border-radius: 0.4cm; padding: 0.22cm 0.16cm; }
+  .wf.desk { width: 15.6cm; height: 8.4cm; border-radius: 0.12cm; padding: 0.15cm; font-size: 7pt; }
+  .wf.totem { width: 4.6cm; height: 8.2cm; border-radius: 0.1cm; padding: 0.2cm; border-width: 3px; }
+  .wf .barra { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #999; padding-bottom: 3px; min-height: 16px; }
+  .wf .logo { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #222; flex-shrink: 0; }
+  .wf .cx { border: 1px solid #777; padding: 3px; border-radius: 3px; }
+  .wf .cx-t { border: 1px dashed #777; padding: 3px; border-radius: 3px; }
+  .wf .img { border: 1px solid #888; background: linear-gradient(to top right, transparent calc(50% - .5px), #aaa, transparent calc(50% + .5px)), linear-gradient(to top left, transparent calc(50% - .5px), #aaa, transparent calc(50% + .5px)); flex-shrink: 0; }
+  .wf .ln { height: 4px; background: #c8c8c8; border-radius: 2px; margin: 2px 0; }
+  .wf .ln.e { background: #888; height: 5px; }
+  .wf .btn { border: 1.5px solid #222; border-radius: 10px; text-align: center; padding: 2px 4px; font-weight: bold; }
+  .wf .btn.ch { background: #222; color: #fff; }
+  .wf .chip { border: 1px solid #777; border-radius: 8px; padding: 0 4px; display: inline-block; margin: 0 2px 2px 0; }
+  .wf .lin { display: flex; gap: 4px; align-items: center; }
+  .wf .col { display: flex; flex-direction: column; gap: 3px; }
+  .wf .f1 { flex: 1; min-width: 0; }
+  .wf .nav { margin-top: auto; display: flex; justify-content: space-around; border-top: 1px solid #999; padding-top: 3px; }
+  .wf .nav span { width: 12px; height: 12px; border: 1px solid #555; border-radius: 3px; }
+  .wf .t { font-weight: bold; font-size: 7.4pt; }
+  .wf .p { color: #555; }
+  .wf .anot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: #b5462b; color: #fff; font-size: 6.5pt; text-align: center; line-height: 11px; font-weight: bold; flex-shrink: 0; }
+  .wf .grade3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .wf .grade4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .wf .grade2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+  .wf .mod { position: relative; }
+  .wf .sombra { background: #e6e6e6; }
+  .notas { font-size: 10pt; line-height: 1.3; margin: 2pt 0 8pt; padding-left: 0.6cm; }
+  .notas li { margin-bottom: 1pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================== CAPA ============================== -->
+<section class="capa">
+  <div class="topo">
+    <p>Centro Universitário Internacional UNINTER</p>
+    <p>{{CURSO}}</p>
+    <p style="margin-top:2cm">{{NOME}}</p>
+  </div>
+  <div class="meio">
+    <p class="titulo-trabalho">Rede Raízes do Nordeste:<br>interface multicanal para pedidos, pagamento desacoplado, fidelidade e LGPD</p>
+    <p class="subtitulo">Projeto Multidisciplinar – Trilha Front-End</p>
+  </div>
+  <div class="rodape">
+    <p>{{CIDADE}}</p>
+    <p>{{ANO}}</p>
+  </div>
+</section>
+
+<!-- ========================= FOLHA DE ROSTO ========================= -->
+<section class="rosto" style="break-before: page">
+  <p class="autor">{{NOME}}</p>
+  <div class="meio">
+    <p class="titulo-trabalho" style="font-weight:bold;text-transform:uppercase">Rede Raízes do Nordeste:<br>interface multicanal para pedidos, pagamento desacoplado, fidelidade e LGPD</p>
+    <p class="natureza">Trabalho apresentado à disciplina de Projeto Multidisciplinar, trilha Front-End, do curso de {{CURSO_TEXTO}} do Centro Universitário Internacional UNINTER, como requisito parcial de avaliação, a partir do estudo de caso “Rede Raízes do Nordeste”.</p>
+    <p class="identificacao">
+      Aluno(a): {{NOME_TEXTO}}<br>
+      RU: {{RU}}<br>
+      Polo de apoio: {{POLO}}<br>
+      Semestre: {{SEMESTRE}}<br>
+      Professor(a): {{PROFESSOR}}
+    </p>
+  </div>
+  <div class="rodape">
+    <p style="font-weight:bold;text-transform:uppercase">{{CIDADE}}</p>
+    <p style="font-weight:bold">{{ANO}}</p>
+  </div>
+</section>
+
+<!-- ============================= SUMÁRIO ============================ -->
+<section style="break-before: page">
+  <p class="sem-recuo" style="text-align:center;font-weight:bold;margin-bottom:18pt">SUMÁRIO</p>
+  <ol class="sumario" id="sumario"></ol>
+</section>
+
+<!-- =========================== 1 INTRODUÇÃO ========================= -->
+<h1 id="s1" data-sumario="1 INTRODUÇÃO">1 Introdução<span class="marca">QQs1QQ</span></h1>
+
+<h2 id="s1-1">1.1 Contexto<span class="marca">QQs1-1QQ</span></h2>
+<p>A Rede Raízes do Nordeste nasceu como uma lanchonete familiar em Recife, comandada por Dona Francisca e seus dois filhos. Em pouco mais de seis anos, tornou-se uma rede em expansão, com unidades em capitais e cidades do interior. A proposta é levar a culinária nordestina ao dia a dia urbano com rapidez, qualidade e identidade cultural: tapiocas, cuscuz recheado, bolo de macaxeira, sucos regionais e cafés da manhã completos.</p>
+<p>O crescimento trouxe desafios. Hoje o cliente interage com a marca por quatro caminhos: aplicativo oficial, totens de autoatendimento, atendimento humano no balcão e retirada rápida (<i>pick-up</i>). As unidades também não são idênticas. Algumas têm cozinha completa e outras operam em formato reduzido; há produtos sazonais, especialmente no período junino, e receitas com variações regionais. A matriz precisa de padronização, rastreabilidade e transparência: vendas por unidade e região, produtos mais consumidos, relatórios financeiros e auditoria de operações sensíveis. Somam-se a isso um programa de fidelidade sujeito à Lei Geral de Proteção de Dados (BRASIL, 2018) e pagamentos processados por serviços externos.</p>
+
+<h2 id="s1-2">1.2 Problema<span class="marca">QQs1-2QQ</span></h2>
+<p>Independentemente do canal, o cliente espera visualizar o cardápio da unidade, selecionar produtos disponíveis naquele local, fazer o pedido, acompanhar o status e receber o pedido corretamente. A interface precisa entregar essa jornada de forma consistente em telas de tamanhos e contextos muito diferentes: o celular na rua, o computador no escritório, o totem em pé na loja e o balcão em horário de pico. Ao mesmo tempo, precisa lidar com falhas reais (estoque que acaba, pagamento recusado, provedor que não responde) e com a obrigação de respeitar a privacidade do cliente.</p>
+
+<h2 id="s1-3">1.3 Objetivos<span class="marca">QQs1-3QQ</span></h2>
+<p><b>Objetivo geral:</b> projetar, justificar e implementar a interface multicanal da Rede Raízes do Nordeste, com foco em clareza de fluxo, coerência funcional e alinhamento com o negócio.</p>
+<p class="sem-recuo"><b>Objetivos específicos:</b></p>
+<ul>
+  <li>levantar requisitos funcionais e não funcionais orientados à experiência do usuário em cada canal;</li>
+  <li>modelar atores, casos de uso, jornada do usuário e ciclo de vida do pedido;</li>
+  <li>elaborar wireframes de baixa fidelidade para celular, desktop e totem;</li>
+  <li>implementar a solução em HTML, CSS e JavaScript com dados simulados, publicada em URL pública;</li>
+  <li>representar o fluxo de pagamento com serviço externo, incluindo recusas e falhas de comunicação;</li>
+  <li>demonstrar a LGPD explicitamente na interface, com avisos, consentimentos e direitos do titular;</li>
+  <li>validar a interface com plano de testes e registrar evidências de execução.</li>
+</ul>
+
+<h2 id="s1-4">1.4 Usuários do sistema<span class="marca">QQs1-4QQ</span></h2>
+<p>O Quadro 1 resume os perfis atendidos pela interface, o canal que cada um usa e o que precisa resolver.</p>
+<p class="legenda">Quadro 1 – Usuários, canais e necessidades</p>
+<table class="quadro">
+  <thead><tr><th>Usuário</th><th>Canal</th><th>Necessidades principais</th></tr></thead>
+  <tbody>
+    <tr><td>Cliente</td><td>App (PWA no celular), site (desktop) e totem</td><td>Encontrar a unidade, ver o que está disponível, pedir rápido, pagar com segurança, acompanhar o preparo, acumular pontos e controlar seus dados.</td></tr>
+    <tr><td>Atendente</td><td>Balcão (PDV)</td><td>Registrar pedidos de quem chega sem app, receber no caixa, entregar pedidos prontos e cancelar com justificativa.</td></tr>
+    <tr><td>Cozinha</td><td>Painel de produção (KDS)</td><td>Ver a fila por ordem de chegada, observações de cada item e tempo de espera; marcar início e conclusão do preparo.</td></tr>
+    <tr><td>Gerente da unidade</td><td>Sistema interno</td><td>Indicadores da unidade, estoque e disponibilidade, campanhas em vigor e auditoria da loja.</td></tr>
+    <tr><td>Administração (matriz)</td><td>Sistema interno</td><td>Visão consolidada por unidade e região, relatórios financeiros, gestão de campanhas e auditoria da rede.</td></tr>
+    <tr><td>Provedor de pagamento</td><td>Integração (sistema externo)</td><td>Receber a solicitação de cobrança e devolver aprovação, recusa ou status da transação.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s1-5">1.5 Relevância<span class="marca">QQs1-5QQ</span></h2>
+<p>Em horários de pico, segundos de espera e telas confusas viram filas, pedidos errados e perda de faturamento. Uma interface que mostra só o que está disponível na unidade, explica cada erro e não cobra o cliente duas vezes reduz atrito na loja e protege a marca. A clareza sobre o uso de dados pessoais, por sua vez, é condição para que o programa de fidelidade exista sem riscos legais e reputacionais.</p>
+
+<h2 id="s1-6">1.6 Trilha escolhida e acesso à solução<span class="marca">QQs1-6QQ</span></h2>
+<p>Este trabalho segue a <b>trilha Front-End</b>, com entrega técnica pela <b>Opção B (codificação)</b>. Todos os endereços abaixo são públicos e não exigem login. O Quadro 2 também traz as contas de teste usadas na demonstração.</p>
+<p class="legenda">Quadro 2 – Links de acesso e contas de teste</p>
+<table class="quadro">
+  <thead><tr><th>Item</th><th>Endereço / dado</th></tr></thead>
+  <tbody>
+    <tr><td>Aplicação publicada (GitHub Pages)</td><td><a href="https://ricotta10.github.io/rede-raizes-do-nordeste/">https://ricotta10.github.io/rede-raizes-do-nordeste/</a></td></tr>
+    <tr><td>Repositório (código-fonte)</td><td><a href="https://github.com/Ricotta10/rede-raizes-do-nordeste">https://github.com/Ricotta10/rede-raizes-do-nordeste</a></td></tr>
+    <tr><td>Histórico de versões (commits)</td><td><a href="https://github.com/Ricotta10/rede-raizes-do-nordeste/commits/main">https://github.com/Ricotta10/rede-raizes-do-nordeste/commits/main</a></td></tr>
+    <tr><td>Plano de testes e evidências</td><td><a href="https://github.com/Ricotta10/rede-raizes-do-nordeste/tree/main/docs">https://github.com/Ricotta10/rede-raizes-do-nordeste/tree/main/docs</a></td></tr>
+    <tr><td>Conta de cliente</td><td><code>cliente@raizes.demo</code> / <code>cliente123</code> (CPF fictício 529.982.247-25)</td></tr>
+    <tr><td>Contas da equipe (senha <code>equipe123</code>)</td><td><code>atendente@raizes.demo</code>, <code>cozinha@raizes.demo</code>, <code>gerente@raizes.demo</code>, <code>matriz@raizes.demo</code></td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ======================= 2 ANÁLISE E REQUISITOS ===================== -->
+<h1 id="s2" data-sumario="2 ANÁLISE E REQUISITOS">2 Análise e requisitos<span class="marca">QQs2QQ</span></h1>
+
+<h2 id="s2-1">2.1 Método de levantamento<span class="marca">QQs2-1QQ</span></h2>
+<p>Os requisitos foram extraídos do estudo de caso e do roteiro da trilha em quatro passos: (1) leitura do caso para identificar atores, canais e objetos de negócio (unidade, produto, pedido, pagamento, ponto, consentimento); (2) separação entre o que o usuário faz (requisitos funcionais), as qualidades que a solução precisa ter (não funcionais) e as políticas da empresa (regras de negócio); (3) registro das ambiguidades do texto e da decisão tomada para cada uma; e (4) priorização pela técnica MoSCoW (SOMMERVILLE, 2018), aqui traduzida como <b>Essencial</b>, <b>Importante</b> e <b>Desejável</b>. Os requisitos obrigatórios do roteiro foram todos classificados como essenciais.</p>
+
+<h2 id="s2-2">2.2 Requisitos funcionais<span class="marca">QQs2-2QQ</span></h2>
+<p class="legenda">Quadro 3 – Requisitos funcionais</p>
+<table class="quadro">
+  <thead><tr><th>ID</th><th>Requisito</th><th>Canais</th><th>Prioridade</th></tr></thead>
+  <tbody>
+    <tr><td>RF01</td><td>Cadastrar e autenticar clientes, com validação de campos, senha forte e bloqueio temporário após tentativas inválidas.</td><td>App, site</td><td>Essencial</td></tr>
+    <tr><td>RF02</td><td>Selecionar a unidade, exibindo endereço, horário, status (aberta/fechada) e formato (cozinha completa ou compacta).</td><td>App, site</td><td>Essencial</td></tr>
+    <tr><td>RF03</td><td>Exibir cardápio dinâmico por unidade, considerando formato da loja, estoque local, itens pausados, sazonalidade e variação regional de receita.</td><td>Todos</td><td>Essencial</td></tr>
+    <tr><td>RF04</td><td>Detalhar o produto e permitir escolher quantidade e observação para a cozinha.</td><td>App, site, totem</td><td>Essencial</td></tr>
+    <tr><td>RF05</td><td>Manter sacola com alteração de quantidade e revalidação de estoque antes do pagamento.</td><td>Todos</td><td>Essencial</td></tr>
+    <tr><td>RF06</td><td>Realizar pedido informando consumo (no local ou para levar) e retirada imediata ou agendada (pedido antecipado).</td><td>App, site, totem</td><td>Essencial</td></tr>
+    <tr><td>RF07</td><td>Solicitar pagamento a um provedor externo e exibir o retorno: aprovado, recusado, Pix pendente ou expirado e falha de comunicação.</td><td>App, site, totem</td><td>Essencial</td></tr>
+    <tr><td>RF08</td><td>Acompanhar o status do pedido em tempo real, com código de retirada.</td><td>App, site, totem</td><td>Essencial</td></tr>
+    <tr><td>RF09</td><td>Programa de fidelidade: acúmulo de pontos, níveis com desconto progressivo, resgate de recompensas e extrato.</td><td>App, site; CPF no totem e balcão</td><td>Importante</td></tr>
+    <tr><td>RF10</td><td>Promoções e campanhas com regras de canal, região, público, valor mínimo e validade, aplicadas por cupom.</td><td>Todos</td><td>Importante</td></tr>
+    <tr><td>RF11</td><td>Gerenciar consentimentos e direitos do titular (acesso, correção, portabilidade, revogação e exclusão).</td><td>App, site</td><td>Essencial</td></tr>
+    <tr><td>RF12</td><td>Autoatendimento no totem sem cadastro, com CPF opcional para pontuar e reinício por inatividade.</td><td>Totem</td><td>Essencial</td></tr>
+    <tr><td>RF13</td><td>Registrar pedido no balcão com pagamento no caixa (cartão, Pix ou dinheiro com troco).</td><td>Balcão</td><td>Essencial</td></tr>
+    <tr><td>RF14</td><td>Painel da cozinha com fila por status, observações e tempo de espera.</td><td>Cozinha</td><td>Essencial</td></tr>
+    <tr><td>RF15</td><td>Fila de retirada com confirmação de entrega.</td><td>Balcão</td><td>Essencial</td></tr>
+    <tr><td>RF16</td><td>Cancelar pedidos conforme o perfil, com estorno automático de pagamento aprovado e reversão de pontos.</td><td>Todos</td><td>Essencial</td></tr>
+    <tr><td>RF17</td><td>Ajustar estoque e pausar ou reativar produtos por unidade.</td><td>Gerência, matriz</td><td>Importante</td></tr>
+    <tr><td>RF18</td><td>Relatórios: vendas por dia, unidade, região e canal, produtos mais vendidos, formas de pagamento e exportação CSV sem dados pessoais.</td><td>Gerência, matriz</td><td>Importante</td></tr>
+    <tr><td>RF19</td><td>Ativar ou desativar campanhas e consultar o público segmentado de forma agregada.</td><td>Matriz</td><td>Desejável</td></tr>
+    <tr><td>RF20</td><td>Registrar e consultar a trilha de auditoria de operações sensíveis e acessos a dados pessoais.</td><td>Gerência, matriz</td><td>Essencial</td></tr>
+    <tr><td>RF21</td><td>Controlar o acesso às telas internas por perfil (atendente, cozinha, gerente, matriz).</td><td>Equipe</td><td>Essencial</td></tr>
+    <tr><td>RF22</td><td>Consultar histórico de pedidos e repetir um pedido anterior.</td><td>App, site</td><td>Desejável</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s2-3">2.3 Requisitos não funcionais<span class="marca">QQs2-3QQ</span></h2>
+<p class="legenda">Quadro 4 – Requisitos não funcionais</p>
+<table class="quadro">
+  <thead><tr><th>ID</th><th>Requisito</th><th>Critério de aceite</th></tr></thead>
+  <tbody>
+    <tr><td>RNF01</td><td><b>Mobile-first</b> (obrigatório)</td><td>Estilos escritos primeiro para celular e ampliados por <i>media queries</i> de largura mínima (600, 768 e 1100 px).</td></tr>
+    <tr><td>RNF02</td><td><b>Responsividade</b> (obrigatório)</td><td>Nenhuma tela com rolagem horizontal entre 360 e 1280 px; navegação inferior no celular e superior no desktop (cenário CT23).</td></tr>
+    <tr><td>RNF03</td><td>Desempenho</td><td>Aplicação sem etapa de build e sem framework: {{TAMANHO_APP}} de HTML, CSS e JavaScript não comprimidos; imagens substituídas por SVG e emoji.</td></tr>
+    <tr><td>RNF04</td><td>Escalabilidade</td><td>Hospedagem estática em CDN; regras, estado e integrações em módulos separados, que podem ser trocados pela API real sem alterar as telas.</td></tr>
+    <tr><td>RNF05</td><td>Tolerância a falhas</td><td>Tempo limite de 7 s no pagamento, consulta de status antes de nova cobrança, chave de idempotência e PWA com cache de reserva.</td></tr>
+    <tr><td>RNF06</td><td>Segurança</td><td>Escape automático de conteúdo dinâmico (anti-XSS), senhas armazenadas como hash SHA-256, mensagem de login genérica e controle de acesso por perfil.</td></tr>
+    <tr><td>RNF07</td><td>Privacidade (LGPD)</td><td>Consentimento por finalidade, minimização, mascaramento para a equipe, agregação mínima de 5 pessoas e auditoria de acessos.</td></tr>
+    <tr><td>RNF08</td><td>Acessibilidade</td><td>HTML semântico, atalho “pular para o conteúdo”, foco gerenciado na troca de tela, <code>aria-live</code> nos status e respeito a <code>prefers-reduced-motion</code> (W3C, 2023).</td></tr>
+    <tr><td>RNF09</td><td>Usabilidade</td><td>Fluxo cardápio → pagamento em poucos passos; toda ação sensível pede confirmação; todo erro diz o motivo e o que fazer (NIELSEN, 2024).</td></tr>
+    <tr><td>RNF10</td><td>Disponibilidade percebida</td><td>Indicadores de carregamento, contadores de tempo e mensagens claras quando um serviço demora ou falha.</td></tr>
+    <tr><td>RNF11</td><td>Manutenibilidade</td><td>Regras de negócio puras e cobertas por testes automatizados; código organizado por responsabilidade.</td></tr>
+    <tr><td>RNF12</td><td>Compatibilidade</td><td>Navegadores atuais (Chrome, Edge, Firefox, Safari) e instalação como app (PWA).</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s2-4">2.4 Regras de negócio<span class="marca">QQs2-4QQ</span></h2>
+<p class="legenda">Quadro 5 – Regras de negócio</p>
+<table class="quadro">
+  <thead><tr><th>ID</th><th>Regra</th></tr></thead>
+  <tbody>
+    <tr><td>RN01</td><td>Cardápio, preço e estoque pertencem à unidade. Trocar de unidade esvazia a sacola, após confirmação do cliente.</td></tr>
+    <tr><td>RN02</td><td>Itens que exigem cozinha completa não são oferecidos em unidades de formato compacto.</td></tr>
+    <tr><td>RN03</td><td>Itens sazonais (São João: junho e julho) aparecem sinalizados e indisponíveis fora da época.</td></tr>
+    <tr><td>RN04</td><td>Variações regionais alteram apenas nome e descrição, nunca o preço, preservando o padrão da franquia.</td></tr>
+    <tr><td>RN05</td><td>A quantidade pedida não pode exceder o estoque. O estoque é reservado na criação do pedido e devolvido em cancelamento ou expiração.</td></tr>
+    <tr><td>RN06</td><td>App e site exigem conta; totem e balcão não. O CPF é opcional e serve apenas para pontuar.</td></tr>
+    <tr><td>RN07</td><td>Com a unidade fechada, pedidos remotos só podem ser agendados dentro do horário de funcionamento.</td></tr>
+    <tr><td>RN08</td><td>O pedido só vai para a cozinha depois do pagamento aprovado.</td></tr>
+    <tr><td>RN09</td><td>Pedido sem pagamento concluído em 15 minutos é cancelado automaticamente.</td></tr>
+    <tr><td>RN10</td><td>Cada tentativa de pagamento tem chave de idempotência. Sem resposta do provedor, consulta-se o status antes de permitir nova cobrança.</td></tr>
+    <tr><td>RN11</td><td>Pontos: 1 ponto por R$ 1,00 pago, apenas para quem consentiu. Níveis: Semente (0), Mandacaru (300 pontos, 3% de desconto) e Juazeiro (1.000 pontos, 5% de desconto).</td></tr>
+    <tr><td>RN12</td><td>Cupom e recompensa não são cumulativos entre si; o desconto do nível é automático.</td></tr>
+    <tr><td>RN13</td><td>O cliente cancela até o início do preparo; a equipe cancela com motivo obrigatório. Pagamentos aprovados são estornados e os pontos, revertidos.</td></tr>
+    <tr><td>RN14</td><td>Cancelamentos, ajustes de estoque, pausas, campanhas, logins da equipe e acessos a dados pessoais são registrados em auditoria.</td></tr>
+    <tr><td>RN15</td><td>A equipe vê apenas o primeiro nome e dados mascarados. Relatórios de público só exibem grupos com 5 pessoas ou mais.</td></tr>
+    <tr><td>RN16</td><td>A data de nascimento só é guardada com consentimento de personalização; a revogação a apaga.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s2-5">2.5 Ambiguidades do estudo de caso e decisões<span class="marca">QQs2-5QQ</span></h2>
+<p>O próprio caso avisa que “nem tudo está explicitamente listado”. O Quadro 6 registra os pontos abertos e a decisão adotada para cada um.</p>
+<p class="legenda">Quadro 6 – Ambiguidades e decisões de projeto</p>
+<table class="quadro">
+  <thead><tr><th>Ambiguidade</th><th>Decisão</th><th>Justificativa</th></tr></thead>
+  <tbody>
+    <tr><td>O que é “pedido antecipado”?</td><td>Agendamento de retirada em janelas de 15 minutos, dentro do horário da unidade.</td><td>Permite pedir antes de chegar, inclusive com a loja fechada, sem criar pedidos impossíveis de atender.</td></tr>
+    <tr><td>O cadastro é obrigatório?</td><td>Sim no app e no site; não no totem e no balcão.</td><td>Pedidos remotos precisam de identificação para acompanhamento e prevenção de fraude; na loja, exigir cadastro geraria fila no pico.</td></tr>
+    <tr><td>Fidelidade “considerando idade e perfil” × LGPD</td><td>Consentimentos separados por finalidade; idade usada apenas como faixa etária e só com consentimento; relatórios agregados.</td><td>Atende aos princípios de finalidade e necessidade (BRASIL, 2018, art. 6º) sem inviabilizar campanhas segmentadas.</td></tr>
+    <tr><td>Como tratar falhas do pagamento externo?</td><td>Máquina de estados do pedido, tempo limite, chave de idempotência, consulta de status e expiração em 15 minutos.</td><td>Evita cobrança em duplicidade e pedidos “presos”, os dois riscos mais caros dessa integração.</td></tr>
+    <tr><td>Diferenças entre unidades sem quebrar o padrão</td><td>Formato da unidade define o cardápio possível; variação regional altera somente o texto; preço é único.</td><td>Mantém a identidade regional com controle da franqueadora.</td></tr>
+    <tr><td>Alta disponibilidade no front-end</td><td>Site estático em CDN, PWA com cache de reserva e interface que informa atrasos.</td><td>A interface não pode ser o ponto de falha e deve se comportar bem quando o back-end demora.</td></tr>
+    <tr><td>Quem pode cancelar e ver dados?</td><td>Permissões por perfil, motivo obrigatório e auditoria; equipe vê dados mascarados.</td><td>Rastreabilidade e transparência exigidas pela matriz.</td></tr>
+    <tr><td>Matriz × unidade</td><td>Gerente vê apenas a própria unidade; a matriz vê a rede, com filtros de região e unidade.</td><td>Separação de responsabilidades e de acesso a informação.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ======================== 3 MODELAGEM ============================ -->
+<h1 id="s3" data-sumario="3 MODELAGEM E ARQUITETURA DA INTERFACE">3 Modelagem e arquitetura da interface<span class="marca">QQs3QQ</span></h1>
+
+<h2 id="s3-1">3.1 Diagrama de casos de uso<span class="marca">QQs3-1QQ</span></h2>
+<p>A Figura 1 apresenta os casos de uso com os cinco atores exigidos: Cliente, Atendente, Cozinha, Gerente/Administrador e Sistema de Pagamento Externo. O caso “Realizar pedido” (UC06) inclui obrigatoriamente “Realizar pagamento” (UC07) e, no app e no site, a autenticação (UC01). “Aplicar cupom ou recompensa” (UC05) estende o pedido de forma opcional. O cancelamento aparece em dois casos distintos porque as regras mudam conforme o ator: o cliente cancela o próprio pedido antes do preparo; a equipe cancela com motivo e registro em auditoria.</p>
+<figure>
+  <p class="legenda">Figura 1 – Diagrama de casos de uso</p>
+  {{FIG_CASOS_USO}}
+  <p class="fonte">Fonte: elaborado no projeto (2026), com base em Fowler (2005).</p>
+</figure>
+
+<h2 id="s3-2">3.2 Descrição de funcionalidade: realizar pagamento<span class="marca">QQs3-2QQ</span></h2>
+<p>A funcionalidade escolhida para detalhamento é o UC07, por concentrar a integração com serviço externo e a maior parte das exceções do sistema. A descrição segue o modelo do roteiro da trilha.</p>
+<table class="quadro uc">
+  <tbody>
+    <tr><th>Caso de uso</th><td><b>UC07 – Realizar pagamento</b></td></tr>
+    <tr><th>Descrição</th><td>Solicita ao provedor externo a cobrança do pedido, recebe a confirmação ou a negativa, registra o resultado e atualiza o status do pedido, informando visualmente o cliente em cada etapa.</td></tr>
+    <tr><th>Ator principal</th><td>Cliente (app, site ou totem).</td></tr>
+    <tr><th>Demais atores</th><td>Sistema de Pagamento Externo; Atendente (pagamento no caixa, no balcão).</td></tr>
+    <tr><th>Pré-condições</th><td>1. Pedido criado no estado AGUARDANDO_PAGAMENTO, com itens validados e estoque reservado.<br>2. No app e no site, cliente autenticado.<br>3. Forma de pagamento escolhida (Pix, crédito, débito ou cartão na maquininha do totem).</td></tr>
+    <tr><th>Pós-condições</th><td>1. Sucesso: pedido CONFIRMADO, enviado à cozinha e pontos creditados (se houver consentimento).<br>2. Falha: pedido em PAGAMENTO_RECUSADO, sem cobrança, aguardando nova tentativa ou cancelamento.<br>3. Abandono: após 15 minutos, pedido CANCELADO e estoque devolvido.</td></tr>
+    <tr><th>Origem das informações</th><td>Sacola e checkout (valor, forma de pagamento); provedor externo (status, código de autorização, identificador da transação, motivo da recusa).</td></tr>
+    <tr><th>Usuários responsáveis</th><td>Cliente; equipe do balcão nos pagamentos presenciais.</td></tr>
+    <tr><th>Fluxo base</th><td>1. O cliente confirma o pedido no checkout.<br>2. O sistema cria o pedido e exibe a tela de pagamento com as etapas: pedido registrado, solicitação enviada, resposta do provedor e pedido enviado à cozinha.<br>3. O sistema envia ao provedor o valor, a forma de pagamento e uma chave de idempotência da tentativa.<br>4. A interface mostra “Autorizando no ambiente seguro do provedor…” e o tempo decorrido.<br>5. O provedor responde “aprovado” com o código de autorização.<br>6. O sistema registra a transação, muda o pedido para CONFIRMADO e credita os pontos.<br>7. A interface mostra “Pagamento aprovado!” e direciona ao acompanhamento do pedido.</td></tr>
+    <tr><th>Fluxos alternativos</th><td><b>FA1 – Recusado:</b> no passo 5 o provedor recusa. A interface mostra o motivo, informa que nenhum valor foi cobrado e oferece tentar com outra forma (nova chave de idempotência) ou cancelar.<br><b>FA2 – Pix:</b> no passo 5 o provedor devolve a cobrança pendente. A interface exibe QR Code, código copia e cola e contagem regressiva, e consulta o status a cada 2,5 s até a aprovação ou a expiração.<br><b>FA3 – Sem resposta:</b> após 7 s sem retorno, a interface avisa para não pagar de novo e oferece “Verificar status”. O sistema consulta a transação pela mesma chave e aplica o resultado real, sem nova cobrança.<br><b>FA4 – Troca de forma:</b> com Pix pendente, o cliente escolhe outra forma; a cobrança Pix é cancelada no provedor antes da nova tentativa.<br><b>FA5 – Balcão:</b> o atendente confirma o recebimento na maquininha ou em dinheiro (com troco) e o pedido segue direto para a cozinha.</td></tr>
+    <tr><th>Regras de negócio</th><td>RN08, RN09, RN10, RN11 e RN13.</td></tr>
+    <tr><th>Como o sistema lida com o processamento externo</th><td>A Raízes do Nordeste não recebe nem armazena dados de cartão; eles são digitados no ambiente do provedor, certificado PCI-DSS (PCI SECURITY STANDARDS COUNCIL, 2022). O sistema guarda apenas o identificador da transação, a autorização e o status. Em produção, a confirmação do Pix chega por <i>webhook</i>; na demonstração, por consulta periódica.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026), conforme modelo do roteiro da trilha.</p>
+<p>A Figura 2 mostra a mesma funcionalidade como troca de mensagens, destacando os três desfechos possíveis da integração.</p>
+<figure>
+  <p class="legenda">Figura 2 – Diagrama de sequência do UC07 (Realizar pagamento)</p>
+  {{FIG_SEQUENCIA}}
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<h2 id="s3-3">3.3 Diagrama da jornada do usuário<span class="marca">QQs3-3QQ</span></h2>
+<p>A Figura 3 mapeia o percurso do cliente desde o primeiro contato com o cardápio até a confirmação do pagamento e a retirada. As raias separam quem age em cada etapa (cliente, interface, front-end/API, provedor de pagamento e loja); os losangos são decisões; as cores distinguem estados do pedido, integrações externas e exceções tratadas.</p>
+<figure class="figura-alta">
+  <p class="legenda">Figura 3 – Jornada do usuário: do cardápio à retirada</p>
+  {{FIG_JORNADA}}
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+<p>Três pontos da jornada merecem destaque. Primeiro, a decisão “Unidade aberta?” não bloqueia o cliente: transforma o pedido em pedido antecipado. Segundo, a identificação só é exigida onde faz sentido (app e site); no totem, o CPF é um convite opcional para pontuar. Terceiro, todas as saídas do pagamento levam a um próximo passo claro, sem estados “sem saída”.</p>
+
+<h2 id="s3-4">3.4 Ciclo de vida do pedido<span class="marca">QQs3-4QQ</span></h2>
+<p>A Figura 4 mostra os estados do pedido e as transições permitidas. A mesma máquina de estados está implementada no código (<code>js/domain.js</code>) e coberta por testes automatizados; transições fora do diagrama são rejeitadas com mensagem.</p>
+<figure>
+  <p class="legenda">Figura 4 – Diagrama de estados do pedido</p>
+  {{FIG_ESTADOS}}
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<h2 id="s3-5">3.5 Arquitetura do front-end e decisões técnicas<span class="marca">QQs3-5QQ</span></h2>
+<p>A solução é uma <i>Single Page Application</i> organizada em camadas (Figura 5). Os canais são layouts sobre o mesmo núcleo, o que garante as mesmas regras em todos eles. As regras de negócio ficam em funções puras, sem dependência de tela ou armazenamento; o estado e a “API simulada” ficam em um módulo próprio; e o provedor de pagamento é um módulo externo, com armazenamento separado, para reproduzir a fronteira real entre os sistemas.</p>
+<figure>
+  <p class="legenda">Figura 5 – Arquitetura do front-end em camadas</p>
+  {{FIG_ARQUITETURA}}
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+<p class="legenda">Quadro 7 – Decisões técnicas</p>
+<table class="quadro">
+  <thead><tr><th>Decisão</th><th>Alternativa considerada</th><th>Justificativa</th></tr></thead>
+  <tbody>
+    <tr><td>HTML, CSS e JavaScript puros (ES Modules)</td><td>React, Angular ou Vue</td><td>Sem etapa de build e sem dependências em produção: carregamento rápido, publicação direta no GitHub Pages e foco nos fundamentos. Em troca, a re-renderização é feita manualmente. Com a equipe maior, a migração para um framework aproveitaria <code>domain.js</code> e <code>store.js</code> sem mudanças.</td></tr>
+    <tr><td>Roteamento por <i>hash</i> (<code>#/cardapio</code>)</td><td>History API</td><td>Funciona em hospedagem estática sem configuração de servidor, e todo endereço da aplicação pode ser aberto diretamente.</td></tr>
+    <tr><td>Dados simulados em <code>localStorage</code> com evento <code>storage</code></td><td>Servidor mock (JSON Server)</td><td>Dispensa infraestrutura e simula atualização em tempo real entre abas: o pedido feito no app aparece na cozinha aberta em outra aba.</td></tr>
+    <tr><td>Provedor de pagamento como módulo isolado</td><td>Simular dentro do fluxo do pedido</td><td>Reproduz a fronteira com o serviço externo: idempotência, tempo limite, consulta de status e estorno.</td></tr>
+    <tr><td>Templates com escape automático</td><td><code>innerHTML</code> com concatenação</td><td>Impede injeção de HTML/script por nomes, observações ou cupons digitados (XSS).</td></tr>
+    <tr><td>PWA (manifest + service worker “rede primeiro”)</td><td>Cache agressivo</td><td>Instalação como app e abertura mesmo com conexão instável, sem servir versões antigas ao avaliador.</td></tr>
+    <tr><td>Ícones em SVG e ilustrações em emoji</td><td>Fotos dos produtos</td><td>Páginas leves e nítidas em qualquer densidade de tela; fotos reais seriam carregadas sob demanda em produção.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h3>3.5.1 Contratos de integração com o back-end</h3>
+<p>Cada operação de <code>store.js</code> corresponde a um endpoint que a trilha de Back-end deve oferecer (Quadro 8). Dessa forma, trocar os dados simulados pela API real não exige alterar as telas.</p>
+<p class="legenda">Quadro 8 – Endpoints previstos para integração</p>
+<table class="quadro">
+  <thead><tr><th>Operação na interface</th><th>Endpoint previsto</th><th>Observação</th></tr></thead>
+  <tbody>
+    <tr><td>Listar unidades / cardápio</td><td><code>GET /unidades</code>, <code>GET /unidades/{id}/cardapio</code></td><td>Cardápio já filtrado por formato, estoque e temporada.</td></tr>
+    <tr><td>Cadastro e login</td><td><code>POST /clientes</code>, <code>POST /auth/login</code></td><td>Token JWT; limite de tentativas no servidor.</td></tr>
+    <tr><td>Criar pedido</td><td><code>POST /pedidos</code></td><td>Revalida estoque e cupom; reserva itens.</td></tr>
+    <tr><td>Pagar pedido</td><td><code>POST /pedidos/{id}/pagamentos</code></td><td>Cabeçalho <code>Idempotency-Key</code> por tentativa.</td></tr>
+    <tr><td>Consultar pagamento</td><td><code>GET /pagamentos/{id}</code></td><td>Usado após tempo limite e no polling do Pix.</td></tr>
+    <tr><td>Confirmação do provedor</td><td><code>POST /webhooks/pagamentos</code></td><td>Chamado pelo provedor (servidor a servidor).</td></tr>
+    <tr><td>Status em tempo real</td><td><code>WS /pedidos/{id}/eventos</code></td><td>Substitui o evento <code>storage</code> da simulação.</td></tr>
+    <tr><td>Atualizar status / cancelar</td><td><code>PATCH /pedidos/{id}/status</code>, <code>POST /pedidos/{id}/cancelamento</code></td><td>Permissão por perfil; motivo obrigatório para a equipe.</td></tr>
+    <tr><td>Consentimentos e direitos do titular</td><td><code>PUT /clientes/me/consentimentos</code>, <code>GET /clientes/me/dados</code>, <code>DELETE /clientes/me</code></td><td>Histórico de consentimentos e anonimização de pedidos.</td></tr>
+    <tr><td>Relatórios e auditoria</td><td><code>GET /relatorios/vendas</code>, <code>GET /auditoria</code></td><td>Dados agregados; acesso apenas para gerência e matriz.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ========================= 4 WIREFRAMES ========================= -->
+<h1 id="s4" data-sumario="4 WIREFRAMES E PROTÓTIPO DE INTERFACE">4 Wireframes e protótipo de interface<span class="marca">QQs4QQ</span></h1>
+
+<h2 id="s4-1">4.1 Arquitetura de informação e mapa de navegação<span class="marca">QQs4-1QQ</span></h2>
+<p>A navegação foi organizada em três áreas independentes (Figura 6): a área do cliente, com o fluxo principal em linha reta (Início → Cardápio → Sacola → Checkout → Pagamento → Acompanhamento) e as áreas de apoio sempre a um toque; o totem, com um fluxo fechado e sem saídas laterais; e o sistema interno, em que cada perfil vê apenas as próprias telas (GARRETT, 2011).</p>
+<figure>
+  <p class="legenda">Figura 6 – Mapa de navegação</p>
+  {{FIG_MAPA}}
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<h2 id="s4-2">4.2 Wireframes de baixa fidelidade – celular<span class="marca">QQs4-2QQ</span></h2>
+<p>Os wireframes validam a disposição dos elementos antes do visual. No celular, a regra é uma coluna, ação principal fixa no rodapé da tela e navegação inferior ao alcance do polegar (WROBLEWSKI, 2011). Os números em vermelho são comentados abaixo de cada figura.</p>
+
+<figure>
+  <p class="legenda">Figura 7 – Wireframes (celular): início, cardápio e detalhe do produto</p>
+  <div class="wf-grade">
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="logo"></span><span class="t f1">Raízes</span><span class="chip">📍 Unidade</span><span class="anot">1</span><span class="btn">🛍</span></div>
+        <div class="cx sombra" style="padding:6px"><div class="ln e" style="width:80%"></div><div class="ln e" style="width:60%"></div><div class="ln" style="width:90%"></div><div class="lin" style="margin-top:4px"><span class="btn ch f1">Ver cardápio</span><span class="btn f1">Promoções</span></div></div>
+        <div class="cx lin"><span class="anot">2</span><span class="f1">Pedido RN-1234 · Em preparo ›</span></div>
+        <div class="t">Peça do seu jeito</div>
+        <div class="grade2"><div class="cx">App/site</div><div class="cx">Totem</div><div class="cx">Balcão</div><div class="cx">Retirada</div></div>
+        <div class="t">Mais pedidos</div>
+        <div class="grade2"><div class="cx col"><div class="img" style="height:22px"></div><div class="ln"></div></div><div class="cx col"><div class="img" style="height:22px"></div><div class="ln"></div></div></div>
+        <div class="nav"><span></span><span></span><span></span><span></span><span></span><span class="anot">3</span></div>
+      </div><span>(a) Início</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="logo"></span><span class="t f1">Cardápio</span><span class="btn">🛍</span></div>
+        <div class="cx lin"><span class="f1">Recife · Boa Viagem<br><span class="p">● Aberta · Cozinha completa</span></span></div>
+        <div class="cx-t lin"><span>🔍</span><span class="p f1">Buscar…</span><span class="anot">4</span></div>
+        <div><span class="chip">Cafés</span><span class="chip">Tapiocas</span><span class="chip">Cuscuz</span></div>
+        <div class="t">Tapiocas</div>
+        <div class="cx lin"><div class="img" style="width:22px;height:22px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div><span class="chip">Mais pedido</span></div><div class="col"><b>R$</b><span class="btn">+</span></div></div>
+        <div class="cx lin"><div class="img" style="width:22px;height:22px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div><span class="chip">Receita regional</span></div><div class="col"><b>R$</b><span class="btn">+</span></div></div>
+        <div class="cx lin" style="opacity:.55"><div class="img" style="width:22px;height:22px"></div><div class="f1"><div class="ln e"></div><span class="chip">Esgotado nesta unidade</span></div><span class="anot">5</span></div>
+        <div class="btn ch lin" style="justify-content:space-between"><span>2</span><span>Ver sacola</span><span>R$ 45</span><span class="anot">6</span></div>
+        <div class="nav"><span></span><span></span><span></span><span></span><span></span></div>
+      </div><span>(b) Cardápio da unidade</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel mod" style="background:#ddd">
+        <div class="barra" style="opacity:.4"><span class="logo"></span><span class="t f1">Cardápio</span></div>
+        <div class="cx col" style="background:#fff;margin-top:14px;padding:6px">
+          <div class="lin"><span class="t f1">Tapioca de carne de sol</span><span>✕</span></div>
+          <div class="img" style="height:46px;width:46px;align-self:center"></div>
+          <div class="ln"></div><div class="ln" style="width:70%"></div>
+          <div style="text-align:center"><b>R$ 22,90</b></div>
+          <div class="p">⚠ Últimas 4 unidades</div>
+          <div>Quantidade</div><div class="cx lin"><span class="f1">1</span><span>▴▾</span><span class="anot">7</span></div>
+          <div>Observação para a cozinha</div><div class="cx" style="height:24px"></div>
+          <div class="p">Não escreva dados pessoais aqui.</div>
+          <div class="lin"><span class="btn f1">Cancelar</span><span class="btn ch f1">Adicionar</span></div>
+        </div>
+      </div><span>(c) Detalhe do produto</span>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+<ol class="notas">
+  <li>A unidade escolhida fica sempre visível: o cardápio depende dela (RN01).</li>
+  <li>Pedido em andamento aparece logo no início, sem o cliente precisar procurá-lo.</li>
+  <li>Navegação inferior com cinco destinos: Início, Cardápio, Pedidos, Fidelidade e Conta.</li>
+  <li>Busca e categorias fixas no topo enquanto a lista rola.</li>
+  <li>Itens indisponíveis continuam visíveis, com o motivo (esgotado, pausado ou fora da temporada).</li>
+  <li>Barra da sacola com quantidade e total, sempre ao alcance do polegar.</li>
+  <li>O campo de quantidade respeita o estoque da unidade.</li>
+</ol>
+
+<figure>
+  <p class="legenda">Figura 8 – Wireframes (celular): sacola, checkout e pagamento</p>
+  <div class="wf-grade">
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">Sua sacola</span></div>
+        <div class="cx lin"><div class="img" style="width:18px;height:18px"></div><div class="f1"><div class="ln e"></div><span class="p">Obs.: sem cebola</span></div><span class="btn">−</span><b>2</b><span class="btn">+</span></div>
+        <div class="cx lin"><div class="img" style="width:18px;height:18px"></div><div class="f1"><div class="ln e"></div></div><span class="btn">🗑</span><b>1</b><span class="btn">+</span></div>
+        <div class="t">Descontos</div>
+        <div class="lin"><div class="cx f1 p">Cupom</div><span class="btn">Aplicar</span><span class="anot">1</span></div>
+        <div class="p" style="color:#b42318">Cupom válido apenas em: Totem.</div>
+        <div class="cx-t">○ Usar recompensa: R$ 10 off <span class="anot">2</span></div>
+        <div class="cx col"><div class="lin"><span class="f1">Subtotal</span><b>R$ 54,70</b></div><div class="lin"><span class="f1">Nível Mandacaru −3%</span><b>−1,64</b></div><div class="lin"><span class="f1 t">Total</span><b>R$ 53,06</b></div><div class="lin p"><span class="f1">★ Pontos</span><span>+53</span></div></div>
+        <div class="btn ch" style="margin-top:auto">Continuar · R$ 53,06</div>
+      </div><span>(a) Sacola</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">‹ Finalizar pedido</span></div>
+        <div class="t">① Retirada</div>
+        <div class="grade2"><div class="cx">■ Para levar</div><div class="cx">□ Comer na loja</div></div>
+        <div class="grade2"><div class="cx">■ O quanto antes</div><div class="cx">□ Agendar <span class="anot">3</span></div></div>
+        <div class="cx p">Nome para chamada: Ana</div>
+        <div class="t">② Pagamento</div>
+        <div class="grade3"><div class="cx">■ Pix</div><div class="cx">□ Crédito</div><div class="cx">□ Débito</div></div>
+        <div class="cx-t p">🛡 Processado por provedor externo; não guardamos dados do cartão. <span class="anot">4</span></div>
+        <div class="t">③ Resumo</div>
+        <div class="ln"></div><div class="ln" style="width:70%"></div>
+        <div class="p">Uso dos dados para executar o pedido (LGPD art. 7º, V)</div>
+        <div class="btn ch" style="margin-top:auto">Confirmar e pagar</div>
+      </div><span>(b) Checkout</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">Pagamento · R$ 53,06</span></div>
+        <div class="col"><div class="lin">✔ Pedido registrado</div><div class="lin">✔ Enviado ao provedor</div><div class="lin">◌ Resposta do provedor <span class="anot">5</span></div><div class="lin p">○ Enviado à cozinha</div></div>
+        <div class="cx col" style="align-items:center;padding:6px">
+          <div class="img" style="width:60px;height:60px"></div>
+          <div class="t">Pague com Pix</div>
+          <div class="p">Expira em 09:58</div>
+          <div class="lin" style="width:100%"><div class="cx f1 p">0002012658…</div><span class="btn">Copiar</span></div>
+          <div class="p">◌ Aguardando confirmação…</div>
+        </div>
+        <div class="cx col" style="border-color:#b42318"><b>✕ Pagamento não aprovado</b><span class="p">Motivo do banco · nenhum valor cobrado</span><div class="lin"><span class="btn ch f1">Tentar de novo</span><span class="btn f1">Cancelar</span></div><span class="anot">6</span></div>
+      </div><span>(c) Pagamento: Pix e recusa</span>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+<ol class="notas">
+  <li>Erro de cupom explica o motivo (canal, validade, valor mínimo, público).</li>
+  <li>Recompensa e cupom não acumulam: ao aplicar um cupom, a recompensa fica desabilitada.</li>
+  <li>Com a unidade fechada, “O quanto antes” fica desabilitado e o agendamento é pré-selecionado.</li>
+  <li>Aviso de que o pagamento é feito pelo provedor externo (transparência e segurança).</li>
+  <li>As etapas tornam visível o que acontece na integração com o provedor.</li>
+  <li>Toda falha oferece um próximo passo, e nunca uma tela sem saída.</li>
+</ol>
+
+<figure>
+  <p class="legenda">Figura 9 – Wireframes (celular): acompanhamento, cadastro e central de privacidade</p>
+  <div class="wf-grade">
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">Pedido RN-1234</span><span class="chip">Em preparo</span></div>
+        <div class="p">A cozinha está preparando seu pedido.</div>
+        <div class="lin" style="justify-content:space-between"><span>●━━</span><span>●━━</span><span>◉━━</span><span>○</span><span class="anot">1</span></div>
+        <div class="lin p" style="justify-content:space-between;font-size:5.6pt"><span>Confirmado</span><span>Em preparo</span><span>Pronto</span><span>Entregue</span></div>
+        <div class="cx lin"><div class="img" style="width:40px;height:40px"></div><div class="f1"><b>RN-1234</b><br><span class="p">Para levar · hoje 7h15</span></div><span class="anot">2</span></div>
+        <div class="t">Itens</div><div class="ln"></div><div class="ln" style="width:70%"></div>
+        <div class="cx col"><div class="lin"><span class="f1">Pagamento</span><b>Aprovado</b></div><div class="lin p"><span class="f1">Transação</span><span>txn_…</span></div></div>
+        <div class="btn" style="margin-top:auto;border-color:#b42318">Cancelar pedido <span class="anot">3</span></div>
+      </div><span>(a) Acompanhamento</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">Criar conta</span></div>
+        <div class="cx p">Nome completo</div><div class="cx p">E-mail</div>
+        <div class="grade2"><div class="cx p">Celular (opc.)</div><div class="cx p">CPF (opc.)</div></div>
+        <div class="cx p">Senha · força ✓</div>
+        <div class="t">🛡 Privacidade e consentimentos <span class="anot">4</span></div>
+        <div class="cx">□ Programa de fidelidade<br><span class="p">▸ Como usamos seus dados</span></div>
+        <div class="cx">□ Ofertas personalizadas<br><span class="p">▸ Como usamos seus dados</span></div>
+        <div class="cx">□ Novidades por e-mail/WhatsApp</div>
+        <div class="cx-t">□ Li e aceito os Termos e a Política (obrigatório) <span class="anot">5</span></div>
+        <div class="btn ch" style="margin-top:auto">Criar conta</div>
+      </div><span>(b) Cadastro</span>
+    </div>
+    <div class="wf-item">
+      <div class="wf cel">
+        <div class="barra"><span class="t f1">🛡 Central de privacidade</span></div>
+        <div class="t">Seus consentimentos</div>
+        <div class="cx">■ Fidelidade · □ Personalização · □ Comunicações</div>
+        <div class="btn">Salvar escolhas</div>
+        <div class="t">Dados que temos sobre você <span class="anot">6</span></div>
+        <div class="cx col p"><div class="lin"><span class="f1">E-mail</span><span>an***@…</span></div><div class="lin"><span class="f1">CPF</span><span>***.982.247-**</span></div><div class="lin"><span class="f1">Base legal</span><span>Contrato</span></div></div>
+        <div class="lin"><span class="btn f1">⬇ Baixar dados</span><span class="btn f1">Corrigir</span></div>
+        <div class="t">Histórico de consentimentos</div><div class="ln"></div><div class="ln" style="width:70%"></div>
+        <div class="btn" style="border-color:#b42318">Excluir conta <span class="anot">7</span></div>
+      </div><span>(c) Central de privacidade</span>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+<ol class="notas">
+  <li>Linha do tempo com o passo atual em destaque e horário de cada mudança.</li>
+  <li>Código de retirada em destaque (e em formato legível por leitor no balcão).</li>
+  <li>Cancelamento só aparece enquanto é permitido (antes do preparo).</li>
+  <li>Cada finalidade é um consentimento separado, desmarcado por padrão, com explicação expansível.</li>
+  <li>Termos são o único item obrigatório e ficam visualmente separados dos opcionais.</li>
+  <li>Inventário de dados com finalidade e base legal, exibido parcialmente mascarado.</li>
+  <li>Exclusão exige confirmação digitada, por ser irreversível.</li>
+</ol>
+
+<h2 id="s4-3">4.3 Wireframes de baixa fidelidade – desktop e sistema interno<span class="marca">QQs4-3QQ</span></h2>
+<p>No desktop, a navegação sobe para o cabeçalho e o cardápio passa a ocupar até três colunas. O sistema interno prioriza densidade de informação e ações grandes, porque é usado em pé, com pressa e muitas vezes com luvas.</p>
+<figure>
+  <p class="legenda">Figura 10 – Wireframe (desktop): cardápio do cliente</p>
+  <div class="wf-grade">
+    <div class="wf desk">
+      <div class="barra"><span class="logo"></span><span class="t">Raízes do Nordeste</span><span class="chip">📍 Fortaleza · Aldeota</span><span class="f1" style="text-align:center">Cardápio · Promoções · Fidelidade · Pedidos</span><span>👤 Ana</span><span class="btn">🛍 2</span></div>
+      <div class="lin"><span class="t" style="font-size:10pt">Cardápio</span></div>
+      <div class="cx lin"><span class="f1">Fortaleza · Aldeota — Av. Santos Dumont, 2450</span><span class="chip">● Aberta · fecha às 22:00</span><span class="chip">Cozinha completa</span></div>
+      <div class="cx-t lin"><span>🔍 Buscar tapioca, cuscuz, suco…</span></div>
+      <div><span class="chip">Cafés da manhã</span><span class="chip">Tapiocas</span><span class="chip">Cuscuz</span><span class="chip">Bolos e doces</span><span class="chip">Sucos e cafés</span><span class="chip">Especiais de São João</span></div>
+      <div class="t">Tapiocas</div>
+      <div class="grade3">
+        <div class="cx lin"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div><span class="chip">Mais pedido</span></div><b>R$ 22,90</b><span class="btn">+</span></div>
+        <div class="cx lin"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div></div><b>R$ 18,90</b><span class="btn">+</span></div>
+        <div class="cx lin"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div><span class="chip">Receita regional</span></div><b>R$ 14,90</b><span class="btn">+</span></div>
+      </div>
+      <div class="t">Bolos e doces</div>
+      <div class="grade3">
+        <div class="cx lin"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div></div><b>R$ 9,90</b><span class="btn">+</span></div>
+        <div class="cx lin" style="opacity:.5"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><span class="chip">Indisponível no momento</span></div><b>R$ 16,90</b></div>
+        <div class="cx lin"><div class="img" style="width:34px;height:34px"></div><div class="f1"><div class="ln e"></div><div class="ln"></div></div><b>R$ 10,90</b><span class="btn">+</span></div>
+      </div>
+      <div class="lin" style="margin-top:auto;justify-content:center"><span class="btn ch" style="width:40%">2 · Ver sacola · R$ 37,80</span></div>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<figure>
+  <p class="legenda">Figura 11 – Wireframes (desktop): balcão (PDV) e cozinha (KDS)</p>
+  <div class="wf-grade">
+    <div class="wf desk" style="height:6.4cm">
+      <div class="barra" style="background:#e9e9e9"><span class="logo"></span><span class="t">Raízes · Equipe</span><span class="f1" style="text-align:center"><b>Balcão</b> · Cozinha · Gerência</span><span>Carlos · Atendente</span><span class="btn">Sair</span></div>
+      <div class="lin"><span class="chip"><b>Novo pedido</b></span><span class="chip">Retirada (2)</span><span class="chip">Pedidos do dia</span></div>
+      <div class="lin" style="align-items:stretch;flex:1">
+        <div class="f1 col"><div><span class="chip">Todos</span><span class="chip">Tapiocas</span><span class="chip">Cuscuz</span><span class="chip">Bebidas</span></div>
+          <div class="grade4">${'<div class="cx col"><div class="img" style="height:16px"></div><div class="ln e"></div><span class="p">R$ · Estoque 32</span></div>'.repeat(8)}</div></div>
+        <div class="cx col" style="width:5.2cm"><b>Pedido no balcão</b><div class="lin"><span class="f1">Cuscuz c/ ovo</span><span class="btn">−</span>1<span class="btn">+</span></div><div class="lin"><span class="f1">Café coado</span><span class="btn">−</span>1<span class="btn">+</span></div><div class="p">○ Comer aqui ○ Levar · Nome p/ chamada</div><div class="cx-t p">CPF p/ pontuar (opcional)</div><div class="p">○ Cartão ○ Pix ● Dinheiro → recebido · troco</div><div class="btn ch">Registrar e receber R$ 22,40</div></div>
+      </div>
+    </div>
+    <div class="wf desk" style="height:5.6cm">
+      <div class="barra" style="background:#e9e9e9"><span class="logo"></span><span class="t f1">Cozinha · Recife · Boa Viagem</span><span class="p">■ até 10 min ■ 10–15 ■ +15</span></div>
+      <div class="grade3" style="flex:1">
+        <div class="cx col sombra"><b>Novos (2)</b><div class="cx col" style="background:#fff;border-left:4px solid #555"><div class="lin"><b class="f1">RN-1421</b><span>⏱ 3 min</span></div><span class="p">Balcão · Comer aqui · Ana</span><span>1× Cuscuz · <b>⚠ sem cebola</b></span><span class="btn ch">Iniciar preparo</span></div></div>
+        <div class="cx col sombra"><b>Em preparo (1)</b><div class="cx col" style="background:#fff;border-left:4px solid #b42318"><div class="lin"><b class="f1">RN-1418</b><span>⏱ 16 min</span></div><span class="p">App · Para levar</span><span>2× Tapioca carne de sol</span><span class="btn ch">Pronto</span></div></div>
+        <div class="cx col sombra"><b>Prontos (1)</b><div class="cx col" style="background:#fff"><b>RN-1419</b><span class="p">aguardando retirada</span></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<figure>
+  <p class="legenda">Figura 12 – Wireframe (desktop): gerência da unidade e matriz</p>
+  <div class="wf-grade">
+    <div class="wf desk" style="height:7.2cm">
+      <div class="barra" style="background:#e9e9e9"><span class="logo"></span><span class="t">Raízes · Equipe</span><span class="f1" style="text-align:center">Balcão · Cozinha · <b>Gerência</b></span><span>Marcos · Gerente</span></div>
+      <div class="lin"><span class="chip"><b>Visão geral</b></span><span class="chip">Estoque</span><span class="chip">Campanhas</span><span class="chip">Auditoria</span><span class="f1"></span><span class="cx p">Período: 7 dias ▾</span><span class="cx p">Região ▾ (matriz)</span><span class="cx p">Unidade ▾ (matriz)</span></div>
+      <div class="grade4" style="grid-template-columns:repeat(5,1fr)"><div class="cx"><span class="p">Faturamento</span><br><b>R$ —</b></div><div class="cx"><span class="p">Pedidos</span><br><b>—</b></div><div class="cx"><span class="p">Ticket médio</span><br><b>R$ —</b></div><div class="cx"><span class="p">Descontos</span><br><b>R$ —</b></div><div class="cx"><span class="p">Cancelamentos</span><br><b>— (%)</b></div></div>
+      <div class="grade3">${'<div class="cx col"><b>Gráfico de barras</b><div class="ln e" style="width:90%"></div><div class="ln e" style="width:70%"></div><div class="ln e" style="width:55%"></div><div class="ln e" style="width:30%"></div></div>'.repeat(3)}</div>
+      <div class="cx col"><div class="lin"><b class="f1">Últimos pedidos</b><span class="btn">⬇ CSV sem dados pessoais</span></div><div class="lin p"><span class="f1">Código · Data · Unidade · Canal · Total · Status</span><span>Cliente: <u>Ver dados</u> (gera auditoria)</span></div><div class="ln"></div><div class="ln"></div></div>
+    </div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<h2 id="s4-4">4.4 Wireframes de baixa fidelidade – totem<span class="marca">QQs4-4QQ</span></h2>
+<p>O totem tem tela vertical e é usado em pé, por pessoas que nunca viram o sistema. Por isso: alvos de toque grandes, uma decisão por bloco, nada de login e um botão “Recomeçar” sempre visível (Figura 13).</p>
+<figure>
+  <p class="legenda">Figura 13 – Wireframes (totem): espera, cardápio, checkout e confirmação</p>
+  <div class="wf-grade">
+    <div class="wf-item"><div class="wf totem" style="background:#ddd;justify-content:center;align-items:center;text-align:center;gap:8px">
+      <div class="img" style="width:50px;height:50px"></div><div class="t" style="font-size:9pt">Bem-vindo à Raízes do Nordeste</div><div class="p">Recife · Boa Viagem</div><div class="btn ch" style="padding:6px">Toque para fazer seu pedido</div><div class="chip">Cupom TOTEM5</div>
+    </div><span>(a) Espera</span></div>
+    <div class="wf-item"><div class="wf totem">
+      <div class="barra"><span class="logo"></span><span class="f1 p">📍 Recife</span><span class="btn">✕ Recomeçar</span></div>
+      <div class="t" style="text-align:center;font-size:8.5pt">O que vai ser hoje?</div>
+      <div><span class="chip">Cafés</span><span class="chip">Tapiocas</span><span class="chip">Cuscuz</span></div>
+      <div class="grade2">${'<div class="cx col" style="align-items:center"><div class="img" style="width:28px;height:28px"></div><div class="ln e" style="width:90%"></div><b>R$</b><span class="btn">+</span></div>'.repeat(4)}</div>
+      <div class="btn ch" style="margin-top:auto;padding:5px">2 · Ver sacola · R$ 37</div>
+    </div><span>(b) Cardápio</span></div>
+    <div class="wf-item"><div class="wf totem">
+      <div class="barra"><span class="logo"></span><span class="f1 p">📍 Recife</span><span class="btn">✕</span></div>
+      <div class="t">Comer aqui ou levar?</div>
+      <div class="grade2"><div class="cx" style="text-align:center;padding:6px">🍽<br>Comer aqui</div><div class="cx" style="text-align:center;padding:6px">🛍<br>Levar</div></div>
+      <div class="cx p">Nome para chamar (opcional)</div>
+      <div class="t">★ Pontuar? (opcional)</div>
+      <div class="lin"><div class="cx f1 p">CPF</div><span class="btn">Pontuar</span></div>
+      <div class="p" style="font-size:5.8pt">Usado só para achar sua conta; não fica no totem.</div>
+      <div class="grade2"><div class="cx" style="text-align:center">💳 Cartão</div><div class="cx" style="text-align:center">📱 Pix</div></div>
+      <div class="btn ch" style="margin-top:auto;padding:5px">Pagar R$ 37,00</div>
+    </div><span>(c) Checkout</span></div>
+    <div class="wf-item"><div class="wf totem" style="justify-content:center;align-items:center;text-align:center;gap:6px">
+      <div style="font-size:20pt">✔</div><div class="t">Pedido confirmado!</div><div class="p">Vamos chamar Ana:</div><div style="font-size:15pt;font-weight:bold">RN-1422</div><div class="chip">+23 pontos</div><div class="p">Volta ao início em 20 s</div><div class="btn ch">Novo pedido</div>
+    </div><span>(d) Confirmação</span></div>
+  </div>
+  <p class="fonte">Fonte: elaborado no projeto (2026).</p>
+</figure>
+
+<h2 id="s4-5">4.5 Design responsivo e diretrizes visuais<span class="marca">QQs4-5QQ</span></h2>
+<p>O CSS é escrito para a menor tela e ampliado em pontos de quebra definidos pelo conteúdo, não por aparelhos específicos (Quadro 9). A paleta usa o urucum (#B5462B) como cor de ação, o amarelo do sol (#F2A516) para destaques e o verde do mandacaru (#2F6B4F) para sucesso, todas com contraste adequado sobre o fundo creme (W3C, 2023).</p>
+<p class="legenda">Quadro 9 – Pontos de quebra e adaptações</p>
+<table class="quadro">
+  <thead><tr><th>Largura</th><th>Contexto</th><th>Adaptações</th></tr></thead>
+  <tbody>
+    <tr><td>Até 599 px (base)</td><td>Celular</td><td>Uma coluna; navegação inferior fixa; botão principal fixo no rodapé; banner de cookies empilhado.</td></tr>
+    <tr><td>600 a 767 px</td><td>Celular grande / tablet vertical</td><td>Formulários em duas colunas; grades de recompensas e promoções em 2 a 4 colunas.</td></tr>
+    <tr><td>768 a 1099 px</td><td>Tablet / notebook</td><td>Menu no cabeçalho; navegação inferior oculta; cardápio em 2 colunas; PDV com ticket lateral; KDS em 3 colunas.</td></tr>
+    <tr><td>1100 px ou mais</td><td>Desktop</td><td>Cardápio em 3 colunas; PDV com 4 colunas de produtos; painéis da gerência em 3 colunas.</td></tr>
+    <tr><td>Modo totem</td><td>Tela vertical em pé</td><td>Fonte maior (18 px), alvos de toque de 56 px, sem navegação lateral e reinício por inatividade.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ============================ 5 LGPD ============================ -->
+<h1 id="s5" data-sumario="5 LGPD E PRIVACIDADE NA INTERFACE">5 LGPD e privacidade na interface<span class="marca">QQs5QQ</span></h1>
+<p>A diretoria da rede definiu que “conhecer o cliente é importante, mas respeitar sua privacidade é obrigatório”. Na interface, isso se traduz em mostrar, no momento certo, o que é coletado, para quê, com qual base legal, e em dar ao titular controles tão fáceis de usar quanto o botão de aceitar.</p>
+
+<h2 id="s5-1">5.1 Princípios aplicados<span class="marca">QQs5-1QQ</span></h2>
+<p class="legenda">Quadro 10 – Princípios da LGPD (art. 6º) e como aparecem na interface</p>
+<table class="quadro">
+  <thead><tr><th>Princípio</th><th>Aplicação na interface</th></tr></thead>
+  <tbody>
+    <tr><td>Finalidade e adequação</td><td>Cada consentimento descreve uma finalidade única (fidelidade, personalização, comunicações), com o texto “Como usamos seus dados”.</td></tr>
+    <tr><td>Necessidade (minimização)</td><td>Celular e CPF são opcionais; a data de nascimento só aparece e só é guardada com o consentimento de personalização; o totem não guarda o CPF.</td></tr>
+    <tr><td>Livre acesso</td><td>Central de privacidade com inventário dos dados, finalidade e base legal; download em JSON (portabilidade).</td></tr>
+    <tr><td>Qualidade dos dados</td><td>Correção dos dados pela tela “Minha conta”, com validação de nome e telefone.</td></tr>
+    <tr><td>Transparência</td><td>Banner de cookies com três opções de mesmo peso visual; política de privacidade em linguagem simples; aviso de base legal no checkout.</td></tr>
+    <tr><td>Segurança</td><td>Senhas como hash, mensagens de login genéricas, bloqueio após tentativas, escape contra XSS e aviso para não colocar dados pessoais em observações.</td></tr>
+    <tr><td>Prevenção</td><td>Pagamento por provedor externo, sem dados de cartão no sistema; dados mascarados para a equipe.</td></tr>
+    <tr><td>Não discriminação</td><td>Faixa etária usada só de forma agregada e apenas para campanhas, nunca para preço ou acesso ao serviço.</td></tr>
+    <tr><td>Responsabilização e prestação de contas</td><td>Histórico de consentimentos com data e canal; auditoria de acessos a dados pessoais com responsável e horário.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026), com base em Brasil (2018) e ANPD (2022).</p>
+
+<h2 id="s5-2">5.2 Elementos de privacidade na interface<span class="marca">QQs5-2QQ</span></h2>
+<p>A Figura 14 mostra os três pontos em que o cliente decide sobre seus dados: o banner de cookies no primeiro acesso (recusar é tão fácil quanto aceitar, conforme orienta a ANPD, 2022), os consentimentos separados no cadastro e a Central de privacidade. A Figura 15 mostra a revogação com explicação das consequências e o acesso da gerência a dados mascarados, sempre registrado em auditoria.</p>
+<div class="telas">
+  <figure><img class="cel-p" src="../evidencias/telas/m-01-inicio-cookies.jpg"><figcaption>(a) Banner de cookies</figcaption></figure>
+  <figure><img class="cel-p" src="../evidencias/telas/m-06-cadastro-consentimentos.jpg"><figcaption>(b) Consentimentos no cadastro</figcaption></figure>
+  <figure><img class="cel-p" src="../evidencias/telas/m-11-privacidade.jpg"><figcaption>(c) Central de privacidade</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 14 – Aviso de cookies, consentimentos e central de privacidade</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas">
+  <figure><img class="cel-p" src="../evidencias/telas/m-20-revogar-consentimento.jpg"><figcaption>(a) Revogação de consentimento</figcaption></figure>
+  <figure><img style="height:6cm;border:1px solid #888" src="../evidencias/telas/d-04-dados-mascarados.jpg"><figcaption>(b) Dados mascarados para a gerência</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 15 – Revogação de consentimento e acesso auditado a dados pessoais</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+
+<h2 id="s5-3">5.3 Tratamento de dados por canal<span class="marca">QQs5-3QQ</span></h2>
+<p class="legenda">Quadro 11 – Dados pessoais tratados por canal</p>
+<table class="quadro">
+  <thead><tr><th>Canal</th><th>Dados</th><th>Finalidade</th><th>Base legal</th><th>Retenção</th></tr></thead>
+  <tbody>
+    <tr><td>App e site</td><td>Nome, e-mail, celular (opc.), CPF (opc.), pedidos</td><td>Conta, pedidos, avisos de retirada</td><td>Execução de contrato</td><td>Enquanto a conta existir</td></tr>
+    <tr><td>App e site</td><td>Histórico de consumo, pontos</td><td>Programa de fidelidade</td><td>Consentimento</td><td>Até a revogação (+90 dias do saldo)</td></tr>
+    <tr><td>App e site</td><td>Faixa etária, preferências</td><td>Ofertas personalizadas</td><td>Consentimento</td><td>Até a revogação</td></tr>
+    <tr><td>Totem</td><td>Primeiro nome (opc.), CPF (opc.)</td><td>Chamada no painel; localizar a conta para pontuar</td><td>Execução de contrato / consentimento já dado no app</td><td>Nome apagado após a retirada; CPF não armazenado no totem</td></tr>
+    <tr><td>Balcão</td><td>Primeiro nome, CPF (opc.)</td><td>Chamada e pontuação</td><td>Execução de contrato</td><td>Igual ao totem</td></tr>
+    <tr><td>Gerência e matriz</td><td>Dados agregados; dados mascarados sob demanda</td><td>Gestão, relatórios, atendimento</td><td>Legítimo interesse / obrigação legal</td><td>Pedidos: 5 anos, anonimizados após exclusão da conta</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ======================== 6 ENTREGA TÉCNICA ======================= -->
+<h1 id="s6" data-sumario="6 ENTREGA TÉCNICA">6 Entrega técnica<span class="marca">QQs6QQ</span></h1>
+
+<h2 id="s6-1">6.1 Links e forma de avaliação<span class="marca">QQs6-1QQ</span></h2>
+<p>A aplicação está publicada em <b>https://ricotta10.github.io/rede-raizes-do-nordeste/</b> e o código em <b>https://github.com/Ricotta10/rede-raizes-do-nordeste</b>, ambos públicos. Para avaliar todos os canais em poucos minutos:</p>
+<ol>
+  <li><b>Cliente:</b> abrir o site, escolher uma unidade, adicionar itens, aplicar o cupom <code>CAFE10</code>, entrar com <code>cliente@raizes.demo</code> / <code>cliente123</code>, pagar com Pix ou cartão e acompanhar o pedido.</li>
+  <li><b>Painel de demonstração</b> (rodapé do site): forçar a resposta do provedor de pagamento (aprovar, recusar ou simular falha de comunicação), ligar ou desligar a cozinha automática e restaurar os dados iniciais.</li>
+  <li><b>Tempo real entre canais:</b> abrir a “Área da equipe” em outra aba com o perfil de cozinha; o pedido feito na primeira aba aparece e muda de status nas duas.</li>
+  <li><b>Totem:</b> rodapé → “Modo totem”, escolher a unidade e fazer um pedido com o CPF fictício 529.982.247-25.</li>
+  <li><b>Gerência e matriz:</b> perfis <code>gerente@raizes.demo</code> e <code>matriz@raizes.demo</code> (senha <code>equipe123</code>).</li>
+</ol>
+
+<h2 id="s6-2">6.2 Tecnologias e organização do código<span class="marca">QQs6-2QQ</span></h2>
+<p class="legenda">Quadro 12 – Tecnologias e estrutura do repositório</p>
+<table class="quadro">
+  <thead><tr><th>Caminho</th><th>Conteúdo</th></tr></thead>
+  <tbody>
+    <tr><td><code>index.html</code>, <code>css/estilos.css</code></td><td>Casca da aplicação e estilos mobile-first (custom properties, grid, <code>:has</code>).</td></tr>
+    <tr><td><code>js/app.js</code></td><td>Roteador, layouts por canal, banner de cookies, painel de demonstração e inatividade do totem.</td></tr>
+    <tr><td><code>js/domain.js</code></td><td>Regras de negócio puras: estados do pedido, disponibilidade, cupons, totais, fidelidade, validações e mascaramento.</td></tr>
+    <tr><td><code>js/store.js</code></td><td>Estado e API simulada: unidades, sacola, pedidos, pagamento, autenticação (SHA-256 via Web Crypto), fidelidade, LGPD e auditoria.</td></tr>
+    <tr><td><code>js/services/gateway.js</code></td><td>Provedor de pagamento externo simulado: idempotência, Pix, recusa, tempo limite, consulta e estorno.</td></tr>
+    <tr><td><code>js/data.js</code></td><td>Dados simulados: 6 unidades, 20 produtos, 5 campanhas, 3 níveis e 4 recompensas.</td></tr>
+    <tr><td><code>js/views/</code></td><td>21 telas: cliente, totem, balcão, cozinha, gerência/matriz, LGPD e erro 404.</td></tr>
+    <tr><td><code>tests/</code></td><td>Testes unitários (<code>node:test</code>) e testes E2E com navegador real (Puppeteer).</td></tr>
+    <tr><td><code>docs/</code></td><td>Plano de testes, evidências de execução e capturas de tela.</td></tr>
+    <tr><td><code>sw.js</code>, <code>manifest.webmanifest</code></td><td>PWA: instalação e funcionamento com conexão instável.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s6-3">6.3 Telas implementadas<span class="marca">QQs6-3QQ</span></h2>
+<p>As figuras a seguir foram capturadas automaticamente da aplicação publicada durante a execução dos testes E2E e mostram a jornada completa nos diferentes canais.</p>
+<div class="telas">
+  <figure><img class="cel" src="../evidencias/telas/m-02-unidades.jpg"><figcaption>(a) Unidades</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-03-cardapio.jpg"><figcaption>(b) Cardápio</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-04-produto.jpg"><figcaption>(c) Produto</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 16 – Celular: escolha da unidade, cardápio e produto</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas">
+  <figure><img class="cel" src="../evidencias/telas/m-07-sacola-cupom.jpg"><figcaption>(a) Sacola com cupom</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-08-checkout.jpg"><figcaption>(b) Checkout</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-19-pix.jpg"><figcaption>(c) Pagamento Pix</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 17 – Celular: sacola, checkout e pagamento</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas">
+  <figure><img class="cel" src="../evidencias/telas/m-15-pagamento-aprovado.jpg"><figcaption>(a) Pagamento aprovado</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-16-acompanhamento.jpg"><figcaption>(b) Acompanhamento</figcaption></figure>
+  <figure><img class="cel" src="../evidencias/telas/m-09-fidelidade.jpg"><figcaption>(c) Fidelidade</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 18 – Celular: confirmação, acompanhamento e programa de fidelidade</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas" style="flex-direction:column;align-items:center">
+  <figure><img class="desk" src="../evidencias/telas/d-01-inicio.jpg"><figcaption>(a) Início no desktop</figcaption></figure>
+  <figure><img class="desk" src="../evidencias/telas/d-02-cardapio.jpg"><figcaption>(b) Cardápio de Fortaleza: receita regional e item pausado</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 19 – Site no desktop</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas">
+  <figure><img class="totem" src="../evidencias/telas/t-01-espera.jpg"><figcaption>(a) Espera</figcaption></figure>
+  <figure><img class="totem" src="../evidencias/telas/t-03-checkout.jpg"><figcaption>(b) Checkout com CPF</figcaption></figure>
+  <figure><img class="totem" src="../evidencias/telas/t-04-maquininha.jpg"><figcaption>(c) Maquininha</figcaption></figure>
+  <figure><img class="totem" src="../evidencias/telas/t-05-confirmacao.jpg"><figcaption>(d) Confirmação</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 20 – Totem de autoatendimento</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas" style="flex-direction:column;align-items:center">
+  <figure><img class="desk" src="../evidencias/telas/d-06-balcao.jpg"><figcaption>(a) Balcão (PDV) com cálculo de troco</figcaption></figure>
+  <figure><img class="desk" src="../evidencias/telas/d-07-cozinha.jpg"><figcaption>(b) Cozinha (KDS)</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 21 – Sistema interno: balcão e cozinha</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas" style="flex-direction:column;align-items:center">
+  <figure><img class="desk-alta" src="../evidencias/telas/d-03-gerencia.jpg"><figcaption>(a) Indicadores e relatórios da unidade</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 22 – Gerência da unidade</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+<div class="telas" style="flex-direction:column;align-items:center">
+  <figure><img class="desk" src="../evidencias/telas/d-05-auditoria.jpg"><figcaption>Trilha de auditoria com acesso a dados pessoais registrado</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 23 – Auditoria de operações sensíveis</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+
+<!-- ========================= 7 PLANO DE TESTES ======================= -->
+<h1 id="s7" data-sumario="7 PLANO DE TESTES E EVIDÊNCIAS">7 Plano de testes e evidências<span class="marca">QQs7QQ</span></h1>
+
+<h2 id="s7-1">7.1 Estratégia de validação<span class="marca">QQs7-1QQ</span></h2>
+<p>A validação combina testes automatizados, que podem ser repetidos a cada mudança, com verificações de usabilidade feitas por pessoas (Quadro 13). Os cenários foram escritos com entradas, passos e resultado esperado, incluindo casos positivos e negativos, conforme Pressman e Maxim (2021).</p>
+<p class="legenda">Quadro 13 – Estratégia de testes</p>
+<table class="quadro">
+  <thead><tr><th>Tipo</th><th>Objetivo</th><th>Como</th></tr></thead>
+  <tbody>
+    <tr><td>Unitário automatizado</td><td>Garantir regras de negócio (cupons, totais, estados, validações, LGPD)</td><td>12 testes com <code>node:test</code> em <code>tests/regras.test.js</code></td></tr>
+    <tr><td>Ponta a ponta (E2E)</td><td>Validar os fluxos na aplicação publicada, em navegador real</td><td>24 cenários com Puppeteer + Microsoft Edge em <code>tests/e2e/executar-cenarios.mjs</code></td></tr>
+    <tr><td>Integração com serviço externo</td><td>Respostas do provedor: aprovado, recusado, Pix e tempo limite</td><td>Painel de demonstração força cada resposta (CT10 a CT13)</td></tr>
+    <tr><td>Responsividade</td><td>Sem rolagem horizontal e layout adequado por largura</td><td>9 telas × 3 larguras (360, 768 e 1280 px) automatizadas (CT23)</td></tr>
+    <tr><td>Privacidade (LGPD)</td><td>Consentimento, transparência, minimização e direitos do titular</td><td>CT14 a CT18</td></tr>
+    <tr><td>Segurança</td><td>Acesso indevido e força bruta</td><td>CT09 e CT24</td></tr>
+    <tr><td>Usabilidade</td><td>Clareza do fluxo e das mensagens</td><td>Teste com 3 usuários: pedir uma tapioca e acompanhar até a retirada, observando hesitações e erros (heurísticas de Nielsen)</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s7-2">7.2 Cenários de teste<span class="marca">QQs7-2QQ</span></h2>
+<p class="legenda">Quadro 14 – Cenários de teste da interface</p>
+<table class="quadro">
+  <thead><tr><th>ID</th><th>Cenário</th><th>Tipo</th><th>Entradas / passos</th><th>Resultado esperado</th></tr></thead>
+  <tbody>
+    <tr><td>CT01</td><td>Cardápio por unidade</td><td>Positivo</td><td>Escolher Salvador (compacta) → Cardápio</td><td>Itens de cozinha completa não aparecem; cuscuz com receita baiana.</td></tr>
+    <tr><td>CT02</td><td>Item sazonal fora de época</td><td>Negativo</td><td>Cardápio em outubro → Especiais de São João</td><td>Itens desabilitados com o selo “Volta no São João”.</td></tr>
+    <tr><td>CT03</td><td>Item esgotado</td><td>Negativo</td><td>Recife → Suco de graviola</td><td>Selo “Esgotado nesta unidade”; não abre o diálogo.</td></tr>
+    <tr><td>CT04</td><td>Limite de estoque</td><td>Negativo</td><td>Bolo de rolo (4 un.): pedir 6; depois 3 + 2</td><td>Campo bloqueia acima de 4; soma além do estoque: “Só temos 4 unidade(s)…”.</td></tr>
+    <tr><td>CT05</td><td>Cupom inexistente</td><td>Negativo</td><td>Cupom <code>XYZ</code></td><td>“Cupom não encontrado. Confira o código digitado.”</td></tr>
+    <tr><td>CT06</td><td>Cupom fora do canal</td><td>Negativo</td><td>Cupom <code>TOTEM5</code> no site</td><td>“Cupom válido apenas em: Totem.”</td></tr>
+    <tr><td>CT07</td><td>Cupom de categoria</td><td>Positivo</td><td>Café sertanejo + suco; <code>CAFE10</code></td><td>10% apenas sobre o café da manhã (R$ 3,49).</td></tr>
+    <tr><td>CT08</td><td>Checkout exige login</td><td>Negativo</td><td>Continuar sem conta no app</td><td>Vai para “Entrar” com aviso; após o login volta ao checkout.</td></tr>
+    <tr><td>CT09</td><td>Login inválido e bloqueio</td><td>Segurança</td><td>Senha errada 6 vezes</td><td>Mensagem genérica; depois de 5 erros, “Aguarde 30 segundos”.</td></tr>
+    <tr><td>CT10</td><td>Pagamento aprovado</td><td>Positivo</td><td>Provedor = aprovar; cartão de crédito</td><td>Etapas concluídas, pontos creditados, ida ao acompanhamento.</td></tr>
+    <tr><td>CT11</td><td>Pagamento recusado</td><td>Negativo</td><td>Provedor = recusar</td><td>Motivo, “Nenhum valor foi cobrado” e opções de nova tentativa.</td></tr>
+    <tr><td>CT12</td><td>Falha de comunicação</td><td>Negativo</td><td>Provedor = sem resposta</td><td>Aviso após 7 s; “Verificar status” confirma sem nova cobrança.</td></tr>
+    <tr><td>CT13</td><td>Pagamento Pix</td><td>Positivo</td><td>Forma Pix</td><td>QR Code, copia e cola, contagem; aprovado por consulta automática.</td></tr>
+    <tr><td>CT14</td><td>Banner de cookies</td><td>LGPD</td><td>Primeiro acesso</td><td>Três opções de mesmo peso; escolha registrada com data.</td></tr>
+    <tr><td>CT15</td><td>Consentimentos no cadastro</td><td>LGPD</td><td>Enviar sem aceitar os termos</td><td>Erro nos termos; opcionais desmarcados; nascimento só com personalização.</td></tr>
+    <tr><td>CT16</td><td>Revogar consentimento</td><td>LGPD</td><td>Desmarcar fidelidade → salvar</td><td>Diálogo com consequências; histórico “Revogado” com data e canal.</td></tr>
+    <tr><td>CT17</td><td>Excluir conta</td><td>LGPD</td><td>Excluir → digitar EXCLUIR</td><td>Conta removida, sessão encerrada, registro na auditoria.</td></tr>
+    <tr><td>CT18</td><td>Acesso a dados pela gerência</td><td>LGPD</td><td>Últimos pedidos → Ver dados</td><td>Aviso prévio, dados mascarados e auditoria do acesso.</td></tr>
+    <tr><td>CT19</td><td>Totem com CPF</td><td>Pos./Neg.</td><td>CPF 111.111.111-11; depois 529.982.247-25</td><td>“CPF inválido”; depois “Olá, Ana! … pontos”.</td></tr>
+    <tr><td>CT20</td><td>Inatividade no totem</td><td>Usabilidade</td><td>90 s sem toque</td><td>“Você ainda está aí?” e reinício com sacola vazia.</td></tr>
+    <tr><td>CT21</td><td>Balcão em dinheiro</td><td>Negativo</td><td>Recebido R$ 10 para total R$ 22,40; depois R$ 50</td><td>Bloqueio com mensagem; troco de R$ 27,60.</td></tr>
+    <tr><td>CT22</td><td>Cancelamento auditado</td><td>Positivo</td><td>Cancelar pedido pago no balcão com motivo</td><td>Estorno, pontos revertidos e registro na auditoria.</td></tr>
+    <tr><td>CT23</td><td>Responsividade</td><td>Não funcional</td><td>9 telas em 360, 768 e 1280 px</td><td>Sem rolagem horizontal e sem erros de script.</td></tr>
+    <tr><td>CT24</td><td>Controle de acesso</td><td>Segurança</td><td>Visitante e atendente em telas restritas</td><td>Visitante vai ao login; atendente volta ao balcão.</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<h2 id="s7-3">7.3 Execução e resultados<span class="marca">QQs7-3QQ</span></h2>
+<p>{{E2E_RESUMO}} O Quadro 15 traz o resultado obtido em cada cenário, copiado do registro gerado pelo script (<code>docs/evidencias/resultado-e2e.md</code>). Os testes unitários das regras de negócio também foram executados, com {{UNIT_RESUMO}} (Apêndice A).</p>
+<p class="legenda">Quadro 15 – Registro de execução dos testes E2E</p>
+{{E2E_TABELA}}
+<p class="fonte">Fonte: execução automatizada na aplicação publicada ({{E2E_DATA}}).</p>
+<p>A Figura 24 mostra as mensagens de erro exibidas nos cenários negativos: cada uma diz o que aconteceu e qual é o próximo passo.</p>
+<div class="telas">
+  <figure><img class="cel-p" src="../evidencias/telas/m-12-cupom-invalido.jpg"><figcaption>(a) Cupom inválido</figcaption></figure>
+  <figure><img class="cel-p" src="../evidencias/telas/m-17-pagamento-recusado.jpg"><figcaption>(b) Pagamento recusado</figcaption></figure>
+  <figure><img class="cel-p" src="../evidencias/telas/m-18-pagamento-timeout.jpg"><figcaption>(c) Sem resposta do provedor</figcaption></figure>
+  <figure><img class="cel-p" style="height:7.4cm" src="../evidencias/telas/t-06-inatividade.jpg"><figcaption>(d) Inatividade no totem</figcaption></figure>
+</div>
+<p class="legenda" style="margin-top:4pt">Figura 24 – Tratamento de erros e exceções</p>
+<p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+
+<h2 id="s7-4">7.4 Riscos em horário de pico<span class="marca">QQs7-4QQ</span></h2>
+<p class="legenda">Quadro 16 – Riscos de pico e mitigação na interface</p>
+<table class="quadro">
+  <thead><tr><th>Risco</th><th>Mitigação</th><th>Validação</th></tr></thead>
+  <tbody>
+    <tr><td>Provedor de pagamento lento ou fora do ar</td><td>Tempo limite de 7 s, aviso claro, consulta de status e idempotência</td><td>CT12</td></tr>
+    <tr><td>Clique duplo em “Pagar”</td><td>Botão desabilitado após o envio e controle de pagamento em andamento</td><td>CT10</td></tr>
+    <tr><td>Estoque acaba enquanto o cliente escolhe</td><td>Revalidação na sacola e no checkout; reserva na criação do pedido</td><td>CT03, CT04</td></tr>
+    <tr><td>Pedidos “presos” sem pagamento</td><td>Expiração automática em 15 minutos com devolução do estoque</td><td>Teste unitário da máquina de estados</td></tr>
+    <tr><td>Totem abandonado no meio do pedido</td><td>Reinício após 90 s sem toque, com aviso de 15 s</td><td>CT20</td></tr>
+    <tr><td>Cozinha sobrecarregada</td><td>Cores por tempo de espera (SLA) e pedidos agendados liberados 15 min antes</td><td>Captura do KDS (Figura 21)</td></tr>
+    <tr><td>Pico de acessos</td><td>Site estático em CDN, sem build e com poucos kilobytes</td><td>RNF03, RNF04</td></tr>
+    <tr><td>Conexão instável na loja</td><td>Service worker com cache de reserva</td><td>RNF05</td></tr>
+  </tbody>
+</table>
+<p class="fonte">Fonte: elaborado no projeto (2026).</p>
+
+<!-- ============================ 8 CONCLUSÃO ========================== -->
+<h1 id="s8" data-sumario="8 CONCLUSÃO">8 Conclusão<span class="marca">QQs8QQ</span></h1>
+<p>O projeto entregou a interface multicanal da Rede Raízes do Nordeste, publicada e acessível, cobrindo os requisitos obrigatórios da trilha: cadastro e autenticação, cardápio por unidade, pedido, acompanhamento, fidelidade, promoções, pagamento externo e LGPD, sempre com abordagem mobile-first e responsiva. A principal escolha foi tratar App, site, totem, balcão, cozinha e gerência como layouts diferentes sobre o mesmo núcleo de regras. Assim, um cupom, um estoque ou um estado de pedido valem igualmente em todos os canais, e o pedido feito no celular aparece na cozinha sem qualquer conversão.</p>
+<p><b>Integrações.</b> O pagamento desacoplado foi o ponto mais delicado. Representá-lo bem exigiu pensar como o sistema se comporta quando o outro lado falha: tempo limite, chave de idempotência, consulta de status antes de nova cobrança, estorno e expiração. Essas decisões de interface têm impacto direto no negócio, porque evitam cobrança duplicada e pedidos esquecidos, e geram requisitos claros para o <b>back-end</b>, registrados como contratos de endpoint (Quadro 8). A troca dos dados simulados pela API real fica restrita ao módulo de estado.</p>
+<p><b>Relação com QA.</b> Separar as regras de negócio em funções puras permitiu testá-las automaticamente, e os cenários E2E viraram um roteiro executável que roda em navegador real contra a versão publicada. Durante o trabalho, os próprios testes revelaram ajustes: um diálogo que dependia de um evento entregue com atraso por alguns navegadores e um limite de quantidade que o campo já bloqueava antes da mensagem do sistema. Isso reforça que qualidade é parte do desenvolvimento, e não uma etapa final.</p>
+<p><b>LGPD.</b> Demonstrar privacidade na interface significou ir além do aviso: consentimentos separados e desmarcados, minimização (data de nascimento apenas com consentimento, CPF opcional e não guardado no totem), mascaramento para a equipe, relatórios agregados e auditoria de cada acesso. O programa de fidelidade segmentado continua possível, mas apenas com o público que consentiu.</p>
+<p><b>Desafios e lições.</b> O maior desafio foi equilibrar riqueza de funcionalidades com clareza: cada exceção precisava de uma mensagem que orientasse o próximo passo. A lição principal é que o fluxo “feliz” é a menor parte do trabalho; a robustez percebida pelo cliente está no tratamento dos casos de erro.</p>
+<p><b>Evoluções futuras.</b> Integrar com a API real e notificações em tempo real (WebSocket); adicionar notificações push de pedido pronto; testes de usabilidade com clientes reais das lojas; acessibilidade auditada com leitores de tela em todos os canais; painel de chamada para TV no salão; internacionalização para turistas; e migração para um framework de componentes caso o time cresça.</p>
+
+<!-- ============================ REFERÊNCIAS ========================== -->
+<h1 class="sem-numero" id="sref" data-sumario="REFERÊNCIAS">Referências<span class="marca">QQsrefQQ</span></h1>
+<div class="referencias" style="line-height:1.15">
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">AUTORIDADE NACIONAL DE PROTEÇÃO DE DADOS (ANPD). <b>Guia orientativo</b>: cookies e proteção de dados pessoais. Brasília: ANPD, 2022. Disponível em: https://www.gov.br/anpd. Acesso em: 9 out. 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). <b>Diário Oficial da União</b>: seção 1, Brasília, DF, 15 ago. 2018.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">CENTRO UNIVERSITÁRIO INTERNACIONAL UNINTER. <b>Projeto Multidisciplinar</b>: orientações e estudo de caso – Rede “Raízes do Nordeste”. Curitiba: UNINTER, 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">CENTRO UNIVERSITÁRIO INTERNACIONAL UNINTER. <b>Roteiro de atividade prática de Projeto Multidisciplinar</b>: trilha Front-End – Rede “Raízes do Nordeste”. Curitiba: UNINTER, 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">FOWLER, Martin. <b>UML essencial</b>: um breve guia para a linguagem-padrão de modelagem de objetos. 3. ed. Porto Alegre: Bookman, 2005.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">GARRETT, Jesse James. <b>The elements of user experience</b>: user-centered design for the web and beyond. 2. ed. Berkeley: New Riders, 2011.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">KRUG, Steve. <b>Não me faça pensar</b>: atualizado. Rio de Janeiro: Alta Books, 2014.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">MDN WEB DOCS. <b>Recursos para desenvolvedores, por desenvolvedores</b>. Mozilla, 2026. Disponível em: https://developer.mozilla.org/pt-BR/. Acesso em: 9 out. 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">NIELSEN, Jakob. <b>10 usability heuristics for user interface design</b>. Nielsen Norman Group, 2024. Disponível em: https://www.nngroup.com/articles/ten-usability-heuristics/. Acesso em: 9 out. 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">PCI SECURITY STANDARDS COUNCIL. <b>Payment Card Industry Data Security Standard (PCI DSS)</b>: version 4.0. Wakefield: PCI SSC, 2022.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">PRESSMAN, Roger S.; MAXIM, Bruce R. <b>Engenharia de software</b>: uma abordagem profissional. 9. ed. Porto Alegre: AMGH, 2021.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">SOMMERVILLE, Ian. <b>Engenharia de software</b>. 10. ed. São Paulo: Pearson, 2018.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">W3C. <b>Web Content Accessibility Guidelines (WCAG) 2.2</b>. W3C Recommendation, 2023. Disponível em: https://www.w3.org/TR/WCAG22/. Acesso em: 9 out. 2026.</p>
+<p class="sem-recuo" style="text-align:left;margin-bottom:12pt">WROBLEWSKI, Luke. <b>Mobile first</b>. New York: A Book Apart, 2011.</p>
+</div>
+
+<!-- ============================ APÊNDICES ============================ -->
+<h1 class="sem-numero" id="sapa" data-sumario="APÊNDICE A – EVIDÊNCIAS DO PROCESSO">Apêndice A – Evidências do processo<span class="marca">QQsapaQQ</span></h1>
+<p>Este apêndice reúne registros que comprovam o processo de desenvolvimento: o histórico de versões do repositório, a saída da execução dos testes automatizados e a relação dos artefatos de evidência publicados.</p>
+<h2>A.1 Histórico de versões (commits)</h2>
+<p>Histórico completo e público em https://github.com/Ricotta10/rede-raizes-do-nordeste/commits/main.</p>
+<p class="legenda">Quadro 17 – Histórico de commits do repositório</p>
+{{GIT_LOG}}
+<p class="fonte">Fonte: <code>git log</code> do repositório ({{DATA_GERACAO}}).</p>
+<h2>A.2 Execução dos testes unitários</h2>
+<pre>{{TESTES_UNITARIOS}}</pre>
+<h2>A.3 Artefatos de evidência no repositório</h2>
+<ul>
+  <li><code>docs/plano-de-testes.md</code>: estratégia e 24 cenários de teste;</li>
+  <li><code>docs/evidencias/resultado-e2e.md</code> e <code>.json</code>: registro da última execução E2E, com data, hora e duração de cada cenário;</li>
+  <li><code>docs/evidencias/telas/</code>: {{QTD_TELAS}} capturas de tela geradas durante os testes;</li>
+  <li><code>tests/</code>: código dos testes, que pode ser executado novamente com <code>npm test</code> e <code>node tests/e2e/executar-cenarios.mjs</code>.</li>
+</ul>
+
+<h1 class="sem-numero" id="sapb" data-sumario="APÊNDICE B – DECLARAÇÃO DE USO DE INTELIGÊNCIA ARTIFICIAL">Apêndice B – Declaração de uso de inteligência artificial<span class="marca">QQsapbQQ</span></h1>
+<p>Conforme exigido pelos roteiros da atividade, declaro o uso de ferramenta de inteligência artificial neste trabalho.</p>
+<table class="quadro uc">
+  <tbody>
+    <tr><th>Ferramenta</th><td>Claude (Anthropic), modelo Claude Opus 5.5, utilizado por meio do aplicativo Claude Code.</td></tr>
+    <tr><th>Objetivos de uso</th><td>Análise dos dois documentos da atividade e planejamento; desenvolvimento do código-fonte do front-end; criação dos testes automatizados (unitários e E2E); elaboração dos diagramas e wireframes; redação deste documento.</td></tr>
+    <tr><th>Prompts utilizados</th><td>{{PROMPTS_IA}}</td></tr>
+    <tr><th>Trechos aproveitados</th><td>O código-fonte do repositório, os testes, os diagramas, os wireframes e o texto deste documento foram gerados com a ferramenta. Os commits do repositório registram a coautoria (<code>Co-Authored-By: Claude</code>).</td></tr>
+  </tbody>
+</table>
+
+<script>
+  // Monta o sumário a partir dos títulos; as páginas são informadas na segunda passagem.
+  (function () {
+    const paginas = window.__PAGINAS__ || {};
+    const lista = document.getElementById('sumario');
+    document.querySelectorAll('h1[id], h2[id]').forEach((h) => {
+      if (h.closest('#sapa') ) return;
+      const nivel = h.tagName === 'H1' ? 'n1' : 'n2';
+      const titulo = h.dataset.sumario || h.textContent.replace(/QQ\S+QQ/, '').trim();
+      const li = document.createElement('li');
+      li.className = nivel;
+      li.innerHTML = '<span class="t"></span><span class="p"></span><span class="n"></span>';
+      li.querySelector('.t').textContent = titulo;
+      li.querySelector('.n').textContent = paginas[h.id] || '00';
+      lista.appendChild(li);
+    });
+  })();
+</script>
+</body>
+</html>
