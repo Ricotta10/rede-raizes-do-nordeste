@@ -21,7 +21,7 @@
 | CT01 | Cardápio por unidade | Positivo | Escolher **Salvador · Barra** (formato compacto) → Cardápio | Itens de cozinha completa (ex.: *Cuscuz com charque*) não aparecem; *Cuscuz com ovo* aparece com a receita baiana |
 | CT02 | Item sazonal fora de época | Negativo | Cardápio em outubro → "Especiais de São João" | Itens desabilitados com o selo "Volta no São João"; não podem ser adicionados |
 | CT03 | Item esgotado | Negativo | Recife → *Suco de graviola* | Selo "Esgotado nesta unidade"; clique não abre o diálogo |
-| CT04 | Limite de estoque | Negativo | Recife → *Bolo de rolo* (4 un.) → quantidade 6 | Mensagem "Só temos 4 unidade(s)… disponível(is) agora" |
+| CT04 | Limite de estoque | Negativo | Recife → *Bolo de rolo* (4 un.) → quantidade 6; depois 3 + 2 | Campo não aceita mais que 4; ao somar além do estoque: "Só temos 4 unidade(s)… disponível(is) agora" |
 | CT05 | Cupom inválido | Negativo | Sacola → cupom `XYZ` | "Cupom não encontrado. Confira o código digitado." |
 | CT06 | Cupom fora do canal | Negativo | Sacola no site → `TOTEM5` | "Cupom válido apenas em: Totem." |
 | CT07 | Cupom de categoria | Positivo | Adicionar *Café sertanejo* → `CAFE10` | Desconto de 10% apenas sobre o café da manhã |
@@ -41,6 +41,9 @@
 | CT21 | Balcão – dinheiro | Negativo | Valor recebido menor que o total | "Informe um valor recebido igual ou maior que R$ X"; com valor maior, o troco é exibido |
 | CT22 | Cancelamento auditado | Positivo | Balcão → Pedidos do dia → Cancelar pedido pago | Motivo obrigatório; estorno solicitado; pontos estornados; registro na auditoria |
 | CT23 | Responsividade | RNF | Telas de 360 px a 1280 px | Sem rolagem horizontal; navegação inferior no celular e superior no desktop |
+| CT24 | Controle de acesso por perfil | Segurança | Visitante abre `#/equipe/gerencia`; atendente abre Cozinha e Gerência | Visitante vai para o login da equipe; atendente é redirecionado ao Balcão |
+
+Os cenários CT01–CT24 são executados automaticamente por `tests/e2e/executar-cenarios.mjs`, que gera o registro em `docs/evidencias/resultado-e2e.md` e as capturas de tela em `docs/evidencias/telas/`.
 
 ## Critérios de aceite gerais
 
