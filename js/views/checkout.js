@@ -92,7 +92,7 @@ function formTotem(r) {
       <section class="cartao">
         <h2>${icone('estrela')} Quer pontuar no Programa Raízes?</h2>
         ${identificado ? html`
-          <p class="caixa-sucesso">${icone('check', 18)} Olá, ${identificado.nome.split(' ')[0]}! Este pedido vai render <strong>${pontosPorValor(r.totais.total)} pontos</strong>.
+          <p class="caixa-sucesso">${icone('check', 18)} <span>Olá, ${identificado.nome.split(' ')[0]}! Este pedido vai render <strong>${pontosPorValor(r.totais.total)} pontos</strong>.</span>
             <button type="button" class="link" data-remover-id>Não sou eu</button></p>` : html`
           <p class="texto-suave">Opcional. Digite seu CPF cadastrado no app. Ele é usado <strong>apenas</strong> para encontrar sua conta e não fica salvo neste totem.</p>
           <div class="campo__linha">
