@@ -1,5 +1,5 @@
 {
-  "executadoEm": "2026-10-10T00:28:17.415Z",
+  "executadoEm": "2026-10-10T00:36:04.331Z",
   "urlBase": "https://ricotta10.github.io/rede-raizes-do-nordeste/",
   "navegador": "msedge.exe",
   "total": 24,
@@ -11,8 +11,8 @@
       "esperado": "Unidade compacta não exibe itens de cozinha completa; receita regional aplicada",
       "obtido": "Cuscuz com charque não exibido; item regional: \"Cuscuz de milho com ovo e coalho\"",
       "resultado": "Aprovado",
-      "duracaoMs": 2426,
-      "em": "2026-10-10T00:25:54.182Z"
+      "duracaoMs": 2326,
+      "em": "2026-10-10T00:33:31.230Z"
     },
     {
       "id": "CT02",
@@ -20,8 +20,8 @@
       "esperado": "Itens juninos desabilitados com o selo \"Volta no São João\"",
       "obtido": "aria-disabled=true; selo: \"Volta no São João\"",
       "resultado": "Aprovado",
-      "duracaoMs": 2224,
-      "em": "2026-10-10T00:25:56.411Z"
+      "duracaoMs": 2138,
+      "em": "2026-10-10T00:33:33.370Z"
     },
     {
       "id": "CT03",
@@ -29,8 +29,8 @@
       "esperado": "Selo \"Esgotado nesta unidade\" e item não adicionável",
       "obtido": "Selo exibido; diálogo não abriu",
       "resultado": "Aprovado",
-      "duracaoMs": 2550,
-      "em": "2026-10-10T00:25:58.961Z"
+      "duracaoMs": 2485,
+      "em": "2026-10-10T00:33:35.857Z"
     },
     {
       "id": "CT04",
@@ -38,8 +38,8 @@
       "esperado": "Campo limitado a 4 un.; ao somar além do estoque: \"Só temos 4 unidade(s)...\"",
       "obtido": "6 un.: envio bloqueado pelo limite do campo (true); 3 + 2 un.: \"Só temos 4 unidade(s) de Bolo de rolo (fatia) disponível(is) agora.\"",
       "resultado": "Aprovado",
-      "duracaoMs": 3843,
-      "em": "2026-10-10T00:26:02.804Z"
+      "duracaoMs": 3882,
+      "em": "2026-10-10T00:33:39.739Z"
     },
     {
       "id": "CT05",
@@ -47,8 +47,8 @@
       "esperado": "\"Cupom não encontrado. Confira o código digitado.\"",
       "obtido": "Cupom não encontrado. Confira o código digitado.",
       "resultado": "Aprovado",
-      "duracaoMs": 3416,
-      "em": "2026-10-10T00:26:06.220Z"
+      "duracaoMs": 3376,
+      "em": "2026-10-10T00:33:43.115Z"
     },
     {
       "id": "CT06",
@@ -56,8 +56,8 @@
       "esperado": "\"Cupom válido apenas em: Totem.\" no site",
       "obtido": "Cupom válido apenas em: Totem.",
       "resultado": "Aprovado",
-      "duracaoMs": 3376,
-      "em": "2026-10-10T00:26:09.597Z"
+      "duracaoMs": 3473,
+      "em": "2026-10-10T00:33:46.589Z"
     },
     {
       "id": "CT07",
@@ -65,8 +65,8 @@
       "esperado": "10% somente sobre o café da manhã (R$ 3,49 em R$ 34,90)",
       "obtido": "Subtotal R$ 44,80 Nível Mandacaru (−3%) − R$ 1,34 Cupom CAFE10 − R$ 3,49 Total R$ 39,97 Pontos de fidelidade +39",
       "resultado": "Aprovado",
-      "duracaoMs": 3870,
-      "em": "2026-10-10T00:26:13.467Z"
+      "duracaoMs": 4624,
+      "em": "2026-10-10T00:33:51.213Z"
     },
     {
       "id": "CT08",
@@ -74,8 +74,8 @@
       "esperado": "Redireciona para Entrar com aviso e volta ao checkout após login",
       "obtido": "#/entrar?volta=/checkout&motivo=checkout → #/checkout",
       "resultado": "Aprovado",
-      "duracaoMs": 3525,
-      "em": "2026-10-10T00:26:16.992Z"
+      "duracaoMs": 5344,
+      "em": "2026-10-10T00:33:56.558Z"
     },
     {
       "id": "CT09",
@@ -83,8 +83,8 @@
       "esperado": "Mensagem genérica e bloqueio de 30 s após 5 erros",
       "obtido": "1ª: \"E-mail ou senha incorretos.\" · 6ª: \"Muitas tentativas sem sucesso. Aguarde 30 segundos.\"",
       "resultado": "Aprovado",
-      "duracaoMs": 5177,
-      "em": "2026-10-10T00:26:22.170Z"
+      "duracaoMs": 4789,
+      "em": "2026-10-10T00:34:01.348Z"
     },
     {
       "id": "CT10",
@@ -92,8 +92,8 @@
       "esperado": "Etapas concluídas, pontos creditados e redirecionamento ao acompanhamento",
       "obtido": "Pagamento aprovado → tela de acompanhamento com pontos creditados",
       "resultado": "Aprovado",
-      "duracaoMs": 10659,
-      "em": "2026-10-10T00:26:32.829Z"
+      "duracaoMs": 8053,
+      "em": "2026-10-10T00:34:09.402Z"
     },
     {
       "id": "CT11",
@@ -101,8 +101,8 @@
       "esperado": "Motivo da recusa, \"Nenhum valor foi cobrado\" e opções de nova tentativa",
       "obtido": "Pagamento não aprovado · Transação não autorizada pelo banco emissor.",
       "resultado": "Aprovado",
-      "duracaoMs": 8536,
-      "em": "2026-10-10T00:26:41.366Z"
+      "duracaoMs": 5604,
+      "em": "2026-10-10T00:34:15.006Z"
     },
     {
       "id": "CT12",
@@ -110,8 +110,8 @@
       "esperado": "Aviso após 7 s e confirmação via consulta, sem nova cobrança",
       "obtido": "Sem resposta → \"Verificar status\" → aprovado com 1 tentativa (sem cobrança duplicada)",
       "resultado": "Aprovado",
-      "duracaoMs": 13716,
-      "em": "2026-10-10T00:26:55.082Z"
+      "duracaoMs": 10952,
+      "em": "2026-10-10T00:34:25.958Z"
     },
     {
       "id": "CT13",
@@ -119,17 +119,17 @@
       "esperado": "QR Code, copia e cola e aprovação por consulta automática",
       "obtido": "QR exibido → pagamento simulado → pedido confirmado",
       "resultado": "Aprovado",
-      "duracaoMs": 12551,
-      "em": "2026-10-10T00:27:07.634Z"
+      "duracaoMs": 9238,
+      "em": "2026-10-10T00:34:35.197Z"
     },
     {
       "id": "CT14",
       "titulo": "Banner de cookies",
       "esperado": "Três opções com mesmo destaque; escolha registrada com data",
-      "obtido": "Botões: Somente necessários, Personalizar, Aceitar todos; desempenho=false; registrado em 2026-10-10T00:27:12.071Z",
+      "obtido": "Botões: Somente necessários, Personalizar, Aceitar todos; desempenho=false; registrado em 2026-10-10T00:34:36.708Z",
       "resultado": "Aprovado",
-      "duracaoMs": 4494,
-      "em": "2026-10-10T00:27:12.128Z"
+      "duracaoMs": 1569,
+      "em": "2026-10-10T00:34:36.766Z"
     },
     {
       "id": "CT15",
@@ -137,17 +137,17 @@
       "esperado": "Termos obrigatórios; finalidades opcionais desmarcadas; nascimento só com personalização",
       "obtido": "Pré-marcados: 0; erro: \"É preciso aceitar os Termos de Uso e a Política de Privacidade para criar a conta.\"; nascimento aparece só após consentir: true",
       "resultado": "Aprovado",
-      "duracaoMs": 5826,
-      "em": "2026-10-10T00:27:17.954Z"
+      "duracaoMs": 2702,
+      "em": "2026-10-10T00:34:39.468Z"
     },
     {
       "id": "CT16",
       "titulo": "Revogação de consentimento",
       "esperado": "Confirmação das consequências e histórico com \"Revogado\"",
-      "obtido": "Histórico: fidelidade = Revogado em 2026-10-10T00:27:20.936Z (App)",
+      "obtido": "Histórico: fidelidade = Revogado em 2026-10-10T00:34:42.409Z (App)",
       "resultado": "Aprovado",
-      "duracaoMs": 3452,
-      "em": "2026-10-10T00:27:21.406Z"
+      "duracaoMs": 3415,
+      "em": "2026-10-10T00:34:42.883Z"
     },
     {
       "id": "CT17",
@@ -155,8 +155,8 @@
       "esperado": "Conta removida, sessão encerrada e registro na auditoria",
       "obtido": "Sessão ativa: false; conta existe: false; auditoria: CONTA_EXCLUIDA",
       "resultado": "Aprovado",
-      "duracaoMs": 3262,
-      "em": "2026-10-10T00:27:24.668Z"
+      "duracaoMs": 3204,
+      "em": "2026-10-10T00:34:46.087Z"
     },
     {
       "id": "CT18",
@@ -164,8 +164,8 @@
       "esperado": "Aviso prévio, dados mascarados e registro na auditoria",
       "obtido": "Dados exibidos: Nome Ana S. E-mail cl***@raizes.demo Telefone (81) ****-32 Programa de fidelidad…; auditoria: DADOS_PESSOAIS_ACESSADOS",
       "resultado": "Aprovado",
-      "duracaoMs": 6502,
-      "em": "2026-10-10T00:27:31.170Z"
+      "duracaoMs": 9495,
+      "em": "2026-10-10T00:34:55.582Z"
     },
     {
       "id": "CT19",
@@ -173,8 +173,8 @@
       "esperado": "CPF inválido rejeitado; CPF cadastrado identifica e informa os pontos",
       "obtido": "Inválido: \"CPF inválido. Confira os números digitados.\" · Válido: \"Olá, Ana! Este pedido vai render 33 pontos.\"",
       "resultado": "Aprovado",
-      "duracaoMs": 9290,
-      "em": "2026-10-10T00:27:40.460Z"
+      "duracaoMs": 12666,
+      "em": "2026-10-10T00:35:08.249Z"
     },
     {
       "id": "CT20",
@@ -182,8 +182,8 @@
       "esperado": "Aviso após 90 s sem toque e reinício após mais 15 s",
       "obtido": "Aviso exibido; voltou à tela inicial com sacola de 0 itens",
       "resultado": "Aprovado",
-      "duracaoMs": 3993,
-      "em": "2026-10-10T00:27:44.453Z"
+      "duracaoMs": 6994,
+      "em": "2026-10-10T00:35:15.244Z"
     },
     {
       "id": "CT21",
@@ -191,8 +191,8 @@
       "esperado": "Bloqueia valor recebido menor que o total e calcula o troco",
       "obtido": "Informe um valor recebido igual ou maior que R$ 22,40. · Troco: R$ 27,60",
       "resultado": "Aprovado",
-      "duracaoMs": 4222,
-      "em": "2026-10-10T00:27:48.675Z"
+      "duracaoMs": 6817,
+      "em": "2026-10-10T00:35:22.061Z"
     },
     {
       "id": "CT22",
@@ -200,8 +200,8 @@
       "esperado": "Motivo obrigatório, estorno, pontos devolvidos e registro na auditoria",
       "obtido": "CANCELADO; pagamento estornado; auditoria: Motivo: Cliente desistiu no balcão. Valor: R$ 15,42 (estorno solicitado ao provedor)",
       "resultado": "Aprovado",
-      "duracaoMs": 7048,
-      "em": "2026-10-10T00:27:55.723Z"
+      "duracaoMs": 11534,
+      "em": "2026-10-10T00:35:33.595Z"
     },
     {
       "id": "CT23",
@@ -209,8 +209,8 @@
       "esperado": "Nenhuma tela ultrapassa a largura em 360, 768 e 1280 px",
       "obtido": "27 combinações de tela × largura sem rolagem horizontal nem erros de script",
       "resultado": "Aprovado",
-      "duracaoMs": 17634,
-      "em": "2026-10-10T00:28:16.461Z"
+      "duracaoMs": 23224,
+      "em": "2026-10-10T00:36:02.972Z"
     },
     {
       "id": "CT24",
@@ -218,8 +218,8 @@
       "esperado": "Atendente não acessa Cozinha nem Gerência; visitante não acessa o sistema interno",
       "obtido": "Visitante → #/equipe; atendente em /cozinha → #/equipe/balcao; em /gerencia → #/equipe/balcao",
       "resultado": "Aprovado",
-      "duracaoMs": 3103,
-      "em": "2026-10-10T00:27:58.827Z"
+      "duracaoMs": 6153,
+      "em": "2026-10-10T00:35:39.748Z"
     }
   ]
 }

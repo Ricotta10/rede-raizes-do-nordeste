@@ -1,6 +1,6 @@
 # Registro de execução – testes E2E
 
-- Executado em: 09/10/2026, 21:28:17
+- Executado em: 09/10/2026, 21:36:04
 - Ambiente: https://ricotta10.github.io/rede-raizes-do-nordeste/ (msedge.exe, modo headless)
 - Resultado: **24/24 aprovados**
 
@@ -19,9 +19,9 @@
 | CT11 | Pagamento recusado | Aprovado | Pagamento não aprovado · Transação não autorizada pelo banco emissor. |
 | CT12 | Falha de comunicação com o provedor (timeout) | Aprovado | Sem resposta → "Verificar status" → aprovado com 1 tentativa (sem cobrança duplicada) |
 | CT13 | Pagamento via Pix | Aprovado | QR exibido → pagamento simulado → pedido confirmado |
-| CT14 | Banner de cookies | Aprovado | Botões: Somente necessários, Personalizar, Aceitar todos; desempenho=false; registrado em 2026-10-10T00:27:12.071Z |
+| CT14 | Banner de cookies | Aprovado | Botões: Somente necessários, Personalizar, Aceitar todos; desempenho=false; registrado em 2026-10-10T00:34:36.708Z |
 | CT15 | Consentimentos no cadastro | Aprovado | Pré-marcados: 0; erro: "É preciso aceitar os Termos de Uso e a Política de Privacidade para criar a conta."; nascimento aparece só após consentir: true |
-| CT16 | Revogação de consentimento | Aprovado | Histórico: fidelidade = Revogado em 2026-10-10T00:27:20.936Z (App) |
+| CT16 | Revogação de consentimento | Aprovado | Histórico: fidelidade = Revogado em 2026-10-10T00:34:42.409Z (App) |
 | CT17 | Exclusão de conta (direito do titular) | Aprovado | Sessão ativa: false; conta existe: false; auditoria: CONTA_EXCLUIDA |
 | CT18 | Acesso a dados pessoais pela gerência | Aprovado | Dados exibidos: Nome Ana S. E-mail cl***@raizes.demo Telefone (81) ****-32 Programa de fidelidad…; auditoria: DADOS_PESSOAIS_ACESSADOS |
 | CT19 | Totem: identificação por CPF | Aprovado | Inválido: "CPF inválido. Confira os números digitados." · Válido: "Olá, Ana! Este pedido vai render 33 pontos." |
