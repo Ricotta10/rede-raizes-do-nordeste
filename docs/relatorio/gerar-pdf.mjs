@@ -60,7 +60,10 @@ const prompts = (dados.promptsIA || []).map((p, i) => `<p class="sem-recuo" styl
 const substituicoes = {
   NOME: marcarPendente(dados.nome), NOME_TEXTO: marcarPendente(dados.nome),
   CURSO: marcarPendente(dados.curso), CURSO_TEXTO: marcarPendente(dados.curso),
-  RU: marcarPendente(dados.ru), POLO: marcarPendente(dados.polo), SEMESTRE: marcarPendente(dados.semestre),
+  RU: marcarPendente(dados.ru),
+  // Polo e semestre são opcionais: se o campo estiver vazio, a linha não é impressa.
+  LINHA_POLO: dados.polo ? `Polo de apoio: ${marcarPendente(dados.polo)}<br>` : '',
+  LINHA_SEMESTRE: dados.semestre ? `Semestre: ${marcarPendente(dados.semestre)}<br>` : '',
   PROFESSOR: marcarPendente(dados.professor), CIDADE: marcarPendente(dados.cidade), ANO: esc(dados.ano),
   FIG_CASOS_USO: D.casosDeUso(), FIG_JORNADA: D.jornada(), FIG_ESTADOS: D.estadosPedido(),
   FIG_SEQUENCIA: D.sequenciaPagamento(), FIG_ARQUITETURA: D.arquitetura(), FIG_MAPA: D.mapaNavegacao(),
