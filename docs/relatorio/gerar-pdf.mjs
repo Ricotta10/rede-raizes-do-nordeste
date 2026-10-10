@@ -41,8 +41,8 @@ try {
   saidaUnit = `${e.stdout || ''}${e.stderr || ''}`;
 }
 saidaUnit = saidaUnit.replace(/\x1b\[[0-9;]*m/g, '').trim();
-const unitPassou = (saidaUnit.match(/ℹ pass (\d+)/) || [])[1];
-const unitFalhou = (saidaUnit.match(/ℹ fail (\d+)/) || [])[1];
+const unitPassou = (saidaUnit.match(/(?:ℹ|#) pass (\d+)/) || [])[1];
+const unitFalhou = (saidaUnit.match(/(?:ℹ|#) fail (\d+)/) || [])[1];
 
 const log = execSync('git log --reverse --date=format:"%d/%m/%Y %H:%M" --pretty=format:"%h|%ad|%an|%s"', { cwd: RAIZ, encoding: 'utf8' })
   .split('\n').filter(Boolean).map((l) => l.split('|'));
@@ -104,8 +104,10 @@ async function localizarTitulos(pdfBytes) {
     const pagina = await doc.getPage(i);
     const conteudo = await pagina.getTextContent();
     const texto = conteudo.items.map((t) => t.str).join('');
-    for (const m of texto.matchAll(/QQ([\w-]+)QQ/g)) {
-      if (!(m[1] in mapa)) mapa[m[1]] = i;
+    // Os títulos de seção são impressos em caixa alta, por isso a busca ignora maiúsculas.
+    for (const m of texto.matchAll(/QQ([a-z0-9-]+?)QQ/gi)) {
+      const id = m[1].toLowerCase();
+      if (!(id in mapa)) mapa[id] = i;
     }
   }
   return { mapa, total: doc.numPages };
@@ -115,6 +117,7 @@ const primeira = await imprimir({});
 const { mapa } = await localizarTitulos(primeira);
 // Numeração ABNT: a capa não é contada; a folha de rosto é a página 1.
 const paginas = Object.fromEntries(Object.entries(mapa).map(([id, p]) => [id, String(p - 1)]));
+console.log(`Títulos localizados: ${Object.keys(paginas).length}`);
 const segunda = await imprimir(paginas);
 const conferencia = await localizarTitulos(segunda);
 for (const [id, p] of Object.entries(conferencia.mapa)) {

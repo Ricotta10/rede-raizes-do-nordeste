@@ -59,14 +59,16 @@
   .sumario .n2 { padding-left: 0.8cm; }
 
   /* Capturas de tela */
-  .telas { display: flex; justify-content: center; align-items: flex-start; gap: 0.5cm; flex-wrap: nowrap; }
+  figure.bloco { margin: 6pt 0 10pt; }
+  figure .notas { text-align: left; }
+  .telas { display: flex; justify-content: center; align-items: flex-start; gap: 0.4cm; flex-wrap: nowrap; }
   .telas figure { flex: 0 0 auto; }
   .telas figcaption { font-size: 9pt; margin-top: 3pt; text-align: center; }
   img.cel { height: 10.2cm; border: 1px solid #888; border-radius: 6px; }
   img.cel-p { height: 8.6cm; border: 1px solid #888; border-radius: 6px; }
   img.desk { width: 15.8cm; border: 1px solid #888; }
   img.desk-alta { width: 13cm; border: 1px solid #888; }
-  img.totem { height: 9.5cm; border: 1px solid #888; }
+  img.totem { height: 6.5cm; border: 1px solid #888; }
 
   /* Wireframes de baixa fidelidade */
   .wf-grade { display: flex; justify-content: center; gap: 0.45cm; flex-wrap: wrap; }
@@ -75,7 +77,7 @@
   .wf { border: 2px solid #222; background: #fff; display: flex; flex-direction: column; gap: 4px; font-size: 6.6pt; line-height: 1.15; text-align: left; overflow: hidden; color: #222; }
   .wf.cel { width: 4.75cm; height: 9.3cm; border-radius: 0.4cm; padding: 0.22cm 0.16cm; }
   .wf.desk { width: 15.6cm; height: 8.4cm; border-radius: 0.12cm; padding: 0.15cm; font-size: 7pt; }
-  .wf.totem { width: 4.6cm; height: 8.2cm; border-radius: 0.1cm; padding: 0.2cm; border-width: 3px; }
+  .wf.totem { width: 3.6cm; height: 6.8cm; border-radius: 0.1cm; padding: 0.2cm; border-width: 3px; }
   .wf .barra { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #999; padding-bottom: 3px; min-height: 16px; }
   .wf .logo { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #222; flex-shrink: 0; }
   .wf .cx { border: 1px solid #777; padding: 3px; border-radius: 3px; }
@@ -464,7 +466,6 @@
     </div>
   </div>
   <p class="fonte">Fonte: elaborado no projeto (2026).</p>
-</figure>
 <ol class="notas">
   <li>A unidade escolhida fica sempre visível: o cardápio depende dela (RN01).</li>
   <li>Pedido em andamento aparece logo no início, sem o cliente precisar procurá-lo.</li>
@@ -474,6 +475,7 @@
   <li>Barra da sacola com quantidade e total, sempre ao alcance do polegar.</li>
   <li>O campo de quantidade respeita o estoque da unidade.</li>
 </ol>
+</figure>
 
 <figure>
   <p class="legenda">Figura 8 – Wireframes (celular): sacola, checkout e pagamento</p>
@@ -523,7 +525,6 @@
     </div>
   </div>
   <p class="fonte">Fonte: elaborado no projeto (2026).</p>
-</figure>
 <ol class="notas">
   <li>Erro de cupom explica o motivo (canal, validade, valor mínimo, público).</li>
   <li>Recompensa e cupom não acumulam: ao aplicar um cupom, a recompensa fica desabilitada.</li>
@@ -532,6 +533,7 @@
   <li>As etapas tornam visível o que acontece na integração com o provedor.</li>
   <li>Toda falha oferece um próximo passo, e nunca uma tela sem saída.</li>
 </ol>
+</figure>
 
 <figure>
   <p class="legenda">Figura 9 – Wireframes (celular): acompanhamento, cadastro e central de privacidade</p>
@@ -577,7 +579,6 @@
     </div>
   </div>
   <p class="fonte">Fonte: elaborado no projeto (2026).</p>
-</figure>
 <ol class="notas">
   <li>Linha do tempo com o passo atual em destaque e horário de cada mudança.</li>
   <li>Código de retirada em destaque (e em formato legível por leitor no balcão).</li>
@@ -587,6 +588,7 @@
   <li>Inventário de dados com finalidade e base legal, exibido parcialmente mascarado.</li>
   <li>Exclusão exige confirmação digitada, por ser irreversível.</li>
 </ol>
+</figure>
 
 <h2 id="s4-3">4.3 Wireframes de baixa fidelidade – desktop e sistema interno<span class="marca">QQs4-3QQ</span></h2>
 <p>No desktop, a navegação sobe para o cabeçalho e o cardápio passa a ocupar até três colunas. O sistema interno prioriza densidade de informação e ações grandes, porque é usado em pé, com pressa e muitas vezes com luvas.</p>
@@ -727,19 +729,23 @@
 
 <h2 id="s5-2">5.2 Elementos de privacidade na interface<span class="marca">QQs5-2QQ</span></h2>
 <p>A Figura 14 mostra os três pontos em que o cliente decide sobre seus dados: o banner de cookies no primeiro acesso (recusar é tão fácil quanto aceitar, conforme orienta a ANPD, 2022), os consentimentos separados no cadastro e a Central de privacidade. A Figura 15 mostra a revogação com explicação das consequências e o acesso da gerência a dados mascarados, sempre registrado em auditoria.</p>
+<figure class="bloco">
+<p class="legenda">Figura 14 – Aviso de cookies, consentimentos e central de privacidade</p>
 <div class="telas">
   <figure><img class="cel-p" src="../evidencias/telas/m-01-inicio-cookies.jpg"><figcaption>(a) Banner de cookies</figcaption></figure>
   <figure><img class="cel-p" src="../evidencias/telas/m-06-cadastro-consentimentos.jpg"><figcaption>(b) Consentimentos no cadastro</figcaption></figure>
   <figure><img class="cel-p" src="../evidencias/telas/m-11-privacidade.jpg"><figcaption>(c) Central de privacidade</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 14 – Aviso de cookies, consentimentos e central de privacidade</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 15 – Revogação de consentimento e acesso auditado a dados pessoais</p>
 <div class="telas">
   <figure><img class="cel-p" src="../evidencias/telas/m-20-revogar-consentimento.jpg"><figcaption>(a) Revogação de consentimento</figcaption></figure>
   <figure><img style="height:6cm;border:1px solid #888" src="../evidencias/telas/d-04-dados-mascarados.jpg"><figcaption>(b) Dados mascarados para a gerência</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 15 – Revogação de consentimento e acesso auditado a dados pessoais</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
 
 <h2 id="s5-3">5.3 Tratamento de dados por canal<span class="marca">QQs5-3QQ</span></h2>
 <p class="legenda">Quadro 11 – Dados pessoais tratados por canal</p>
@@ -790,57 +796,73 @@
 
 <h2 id="s6-3">6.3 Telas implementadas<span class="marca">QQs6-3QQ</span></h2>
 <p>As figuras a seguir foram capturadas automaticamente da aplicação publicada durante a execução dos testes E2E e mostram a jornada completa nos diferentes canais.</p>
+<figure class="bloco">
+<p class="legenda">Figura 16 – Celular: escolha da unidade, cardápio e produto</p>
 <div class="telas">
   <figure><img class="cel" src="../evidencias/telas/m-02-unidades.jpg"><figcaption>(a) Unidades</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-03-cardapio.jpg"><figcaption>(b) Cardápio</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-04-produto.jpg"><figcaption>(c) Produto</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 16 – Celular: escolha da unidade, cardápio e produto</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 17 – Celular: sacola, checkout e pagamento</p>
 <div class="telas">
   <figure><img class="cel" src="../evidencias/telas/m-07-sacola-cupom.jpg"><figcaption>(a) Sacola com cupom</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-08-checkout.jpg"><figcaption>(b) Checkout</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-19-pix.jpg"><figcaption>(c) Pagamento Pix</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 17 – Celular: sacola, checkout e pagamento</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 18 – Celular: confirmação, acompanhamento e programa de fidelidade</p>
 <div class="telas">
   <figure><img class="cel" src="../evidencias/telas/m-15-pagamento-aprovado.jpg"><figcaption>(a) Pagamento aprovado</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-16-acompanhamento.jpg"><figcaption>(b) Acompanhamento</figcaption></figure>
   <figure><img class="cel" src="../evidencias/telas/m-09-fidelidade.jpg"><figcaption>(c) Fidelidade</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 18 – Celular: confirmação, acompanhamento e programa de fidelidade</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 19 – Site no desktop</p>
 <div class="telas" style="flex-direction:column;align-items:center">
   <figure><img class="desk" src="../evidencias/telas/d-01-inicio.jpg"><figcaption>(a) Início no desktop</figcaption></figure>
   <figure><img class="desk" src="../evidencias/telas/d-02-cardapio.jpg"><figcaption>(b) Cardápio de Fortaleza: receita regional e item pausado</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 19 – Site no desktop</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 20 – Totem de autoatendimento</p>
 <div class="telas">
   <figure><img class="totem" src="../evidencias/telas/t-01-espera.jpg"><figcaption>(a) Espera</figcaption></figure>
   <figure><img class="totem" src="../evidencias/telas/t-03-checkout.jpg"><figcaption>(b) Checkout com CPF</figcaption></figure>
   <figure><img class="totem" src="../evidencias/telas/t-04-maquininha.jpg"><figcaption>(c) Maquininha</figcaption></figure>
   <figure><img class="totem" src="../evidencias/telas/t-05-confirmacao.jpg"><figcaption>(d) Confirmação</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 20 – Totem de autoatendimento</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 21 – Sistema interno: balcão e cozinha</p>
 <div class="telas" style="flex-direction:column;align-items:center">
   <figure><img class="desk" src="../evidencias/telas/d-06-balcao.jpg"><figcaption>(a) Balcão (PDV) com cálculo de troco</figcaption></figure>
   <figure><img class="desk" src="../evidencias/telas/d-07-cozinha.jpg"><figcaption>(b) Cozinha (KDS)</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 21 – Sistema interno: balcão e cozinha</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 22 – Gerência da unidade</p>
 <div class="telas" style="flex-direction:column;align-items:center">
   <figure><img class="desk-alta" src="../evidencias/telas/d-03-gerencia.jpg"><figcaption>(a) Indicadores e relatórios da unidade</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 22 – Gerência da unidade</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
+<figure class="bloco">
+<p class="legenda">Figura 23 – Auditoria de operações sensíveis</p>
 <div class="telas" style="flex-direction:column;align-items:center">
   <figure><img class="desk" src="../evidencias/telas/d-05-auditoria.jpg"><figcaption>Trilha de auditoria com acesso a dados pessoais registrado</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 23 – Auditoria de operações sensíveis</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
 
 <!-- ========================= 7 PLANO DE TESTES ======================= -->
 <h1 id="s7" data-sumario="7 PLANO DE TESTES E EVIDÊNCIAS">7 Plano de testes e evidências<span class="marca">QQs7QQ</span></h1>
@@ -901,14 +923,16 @@
 {{E2E_TABELA}}
 <p class="fonte">Fonte: execução automatizada na aplicação publicada ({{E2E_DATA}}).</p>
 <p>A Figura 24 mostra as mensagens de erro exibidas nos cenários negativos: cada uma diz o que aconteceu e qual é o próximo passo.</p>
+<figure class="bloco">
+<p class="legenda">Figura 24 – Tratamento de erros e exceções</p>
 <div class="telas">
   <figure><img class="cel-p" src="../evidencias/telas/m-12-cupom-invalido.jpg"><figcaption>(a) Cupom inválido</figcaption></figure>
   <figure><img class="cel-p" src="../evidencias/telas/m-17-pagamento-recusado.jpg"><figcaption>(b) Pagamento recusado</figcaption></figure>
   <figure><img class="cel-p" src="../evidencias/telas/m-18-pagamento-timeout.jpg"><figcaption>(c) Sem resposta do provedor</figcaption></figure>
   <figure><img class="cel-p" style="height:7.4cm" src="../evidencias/telas/t-06-inatividade.jpg"><figcaption>(d) Inatividade no totem</figcaption></figure>
 </div>
-<p class="legenda" style="margin-top:4pt">Figura 24 – Tratamento de erros e exceções</p>
 <p class="fonte">Fonte: capturas da aplicação publicada (2026).</p>
+</figure>
 
 <h2 id="s7-4">7.4 Riscos em horário de pico<span class="marca">QQs7-4QQ</span></h2>
 <p class="legenda">Quadro 16 – Riscos de pico e mitigação na interface</p>
@@ -959,7 +983,7 @@
 <h1 class="sem-numero" id="sapa" data-sumario="APÊNDICE A – EVIDÊNCIAS DO PROCESSO">Apêndice A – Evidências do processo<span class="marca">QQsapaQQ</span></h1>
 <p>Este apêndice reúne registros que comprovam o processo de desenvolvimento: o histórico de versões do repositório, a saída da execução dos testes automatizados e a relação dos artefatos de evidência publicados.</p>
 <h2>A.1 Histórico de versões (commits)</h2>
-<p>Histórico completo e público em https://github.com/Ricotta10/rede-raizes-do-nordeste/commits/main.</p>
+<p class="sem-recuo" style="text-align:left">Histórico completo e público em: https://github.com/Ricotta10/rede-raizes-do-nordeste/commits/main</p>
 <p class="legenda">Quadro 17 – Histórico de commits do repositório</p>
 {{GIT_LOG}}
 <p class="fonte">Fonte: <code>git log</code> do repositório ({{DATA_GERACAO}}).</p>
